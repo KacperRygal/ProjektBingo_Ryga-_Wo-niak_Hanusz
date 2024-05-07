@@ -1,12 +1,14 @@
 ﻿using Bingo.Classes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -25,7 +27,7 @@ namespace Bingo
         private GameManager gameManager;
         private DispatcherTimer secondTimer;
         private int currentTime = 10;
-        
+        private int[] numbers;
         public GameWindow(int size, GameType gameType)
         {
             InitializeComponent();
@@ -52,6 +54,8 @@ namespace Bingo
             { 
                 currentTime = 10;
                 txbGeneratedNumber.Text = gameManager.RandomNumber().ToString();
+
+                BingoButton.currentGeneratedValue = txbGeneratedNumber.Text;
             }
             txbTimer.Text = currentTime.ToString();
         }
@@ -60,6 +64,7 @@ namespace Bingo
         private void CreateGridOfButtons()
         {
             Grid grid = new Grid();
+            grid.Name = "Buttons";
             grid.HorizontalAlignment = HorizontalAlignment.Center;
             grid.VerticalAlignment = VerticalAlignment.Center;
             grid.Margin = new Thickness(20, 50, 20, 30);
@@ -76,7 +81,8 @@ namespace Bingo
                 for(int j=0; j< size; j++)
                 {
                     BingoButton bingoButton = new BingoButton();
-                    
+                    bingoButton.ButtonClicked += BingoButton_Clicked;
+                    bingoButton.id = i * size + j;
                     if (gameType == 0) bingoButton.Content = numbers[i * size + j];
                     Grid.SetRow(bingoButton, j);
                     Grid.SetColumn(bingoButton, i);
@@ -89,7 +95,88 @@ namespace Bingo
             main.Children.Add(grid);
         }
 
-        private int[] numbers;
+
+        private void BingoButton_Clicked(object sender, EventArgs e)
+        {
+            if(CheckWinner())
+            {
+                secondTimer.Stop();
+                MessageBox.Show("Win");
+            }
+            
+        }
+        
+        private bool CheckWinner()
+        {
+            Grid main = (Grid)FindName("Main");
+            foreach (var child in main.Children)
+            {
+                if (child is Grid buttons)
+                {
+                    bool[,] tab = new bool[size, size];
+                    foreach (var childs in buttons.Children)
+                    {
+                        if (childs is BingoButton bingoButton)
+                        {
+                            tab[bingoButton.id / size, bingoButton.id % size] = bingoButton.currentState;
+                        }
+                    }
+
+                    if (CheckRows(tab) || CheckColumns(tab) || CheckDiagonals(tab)) return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool CheckRows(bool[,] tab)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                int sum = 0;
+                for (int j = 0; j < size; j++)
+                {
+                    if (tab[i, j]) sum++;
+                }
+                if (sum == size)
+                    return true;
+            }
+            return false;
+        }
+
+        private bool CheckColumns(bool[,] tab)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                int sum = 0;
+                for (int i = 0; i < size; i++)
+                {
+                    if (tab[i, j]) sum++;
+                }
+                if (sum == size)
+                    return true;
+            }
+            return false;
+        }
+
+        private bool CheckDiagonals(bool[,] tab)
+        {
+            int sum = 0;
+            for (int i = 0; i < size; i++)
+            {
+                if (tab[i, i]) sum++;
+            }
+
+            if (sum == size)  return true;
+            else sum = 0;
+
+            for (int i = 0; i < size; i++)
+            {
+                if (tab[i, size - i - 1]) sum++;
+            }
+            if (sum == size) return true;
+            else return false;
+        }
 
         private void RandomNumbers()
         {

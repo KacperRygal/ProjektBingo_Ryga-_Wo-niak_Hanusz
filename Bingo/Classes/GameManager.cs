@@ -28,5 +28,7 @@ namespace Bingo.Classes
             numbers.Add(generated);
             return generated;
         }
+
+        
     }
 }
