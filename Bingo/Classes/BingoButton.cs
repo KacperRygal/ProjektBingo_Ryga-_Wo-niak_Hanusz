@@ -24,10 +24,12 @@ namespace Bingo.Classes
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
             Margin = new Thickness(5);
-            Width = 100;
-            Height = 100;
+            Width = 80;
+            Height = 80;
             Click += BingoButton_Click;
             Background = Brushes.LightGray;
+            Padding = new Thickness(5);
+            
         }
 
         private void BingoButton_Click(object sender, RoutedEventArgs e)

@@ -17,16 +17,23 @@ namespace Bingo.Classes
 
         private List<int> numbers;
 
-        public int RandomNumber()
+        public int RandomValue(GameType gameType, int counter)
         {
             Random random = new Random();
+            int max;
+            if (gameType == GameType.Numbers)
+                max = 75;
+            else
+                max = counter;
+
             int generated;
             do
             {
-                generated = random.Next(1, 75);
+                generated = random.Next(1, max);
             } while (numbers.Contains(generated));
             numbers.Add(generated);
             return generated;
+            
         }
 
         
