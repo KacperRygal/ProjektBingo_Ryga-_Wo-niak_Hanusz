@@ -1,4 +1,5 @@
 ﻿using Bingo.Classes;
+using Bingo.Classes.Buttons;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,6 +27,7 @@ namespace Bingo
     {
         private int size = 5;
         private GameType gameType;
+        private Categories category;
         private GameManager gameManager;
         private DispatcherTimer secondTimer;
         private int currentTime = 10;
@@ -33,19 +35,20 @@ namespace Bingo
         private string path = "Data\\data.xml";
         private int counter;
         private XDocument doc;
-        public GameWindow(int size, GameType gameType)
+        public GameWindow(int size, GameType gameType, Categories category)
         {
             InitializeComponent();
             this.size = size;
             this.gameType = gameType;
+            this.category = category;
             gameManager = new GameManager();
             
             doc = XDocument.Load(path);
-            XElement city = doc.Element("City");
-            if(city!=null)
+            if(category != Categories.Empty)
             {
-                counter = city.Elements("Object").Count();
-                Debug.WriteLine(counter);
+                Debug.WriteLine(doc.Element("Main").Element(category.ToString()));
+                XElement cat = doc.Element("Main").Element(category.ToString());
+                counter = cat.Elements("Object").Count();
             }
             CreateGridOfButtons();
             secondTimer = new DispatcherTimer();
@@ -69,14 +72,17 @@ namespace Bingo
                 else
                 {
                     doc = XDocument.Load(path);
-                    XElement? temp = doc.Descendants("Object").FirstOrDefault(d => (int)d.Element("Id") == generatedInt);
+                    XElement? temp = doc
+                            .Descendants(category.ToString())
+                            .Descendants("Object")
+                            .FirstOrDefault(d => (int)d.Element("Id") == generatedInt);
                     if (temp != null)
                     {
                         txbGeneratedNumber.Text = temp.Element("Name").Value;
                     }
                 }
 
-                BingoButton.currentGeneratedValue = txbGeneratedNumber.Text;
+                BingoNumberButton.currentGeneratedValue = txbGeneratedNumber.Text;
             }
             txbTimer.Text = currentTime.ToString();
         }
@@ -96,28 +102,34 @@ namespace Bingo
             }
 
             RandomNumbers(gameType);
-            
+
+            ButtonFactory buttonFactory;
+            if(gameType == GameType.Numbers) buttonFactory = new BingoNumberButtonFactory();
+            else buttonFactory = new BingoFindButtonFactory();
             
             for (int i = 0; i < size; i++)
             {
                 for(int j=0; j< size; j++)
                 {
-                    BingoButton bingoButton = new BingoButton();
-                    bingoButton.ButtonClicked += BingoButton_Clicked;
-                    bingoButton.id = i * size + j;
-                    if (gameType == 0) bingoButton.Content = numbers[i * size + j];
+                    IBingoButton bingoButton = buttonFactory.CreateButton();
+                    bingoButton.OnClick += BingoButton_Clicked;
+                    bingoButton.Id = i * size + j;
+                    if (gameType == 0) bingoButton.Content = numbers[i * size + j].ToString();
                     else
                     {
                         doc = XDocument.Load(path);
-                        XElement? temp = doc.Descendants("Object").FirstOrDefault(d => (int)d.Element("Id") == i * size + j);
+                        XElement? temp = doc
+                            .Descendants(category.ToString())
+                            .Descendants("Object")
+                            .FirstOrDefault(d => (int)d.Element("Id") == i * size + j);
                         if(temp != null)
                         {
                             bingoButton.Content = temp.Element("Name").Value;
                         }
                     }
-                    Grid.SetRow(bingoButton, j);
-                    Grid.SetColumn(bingoButton, i);
-                    grid.Children.Add(bingoButton);
+                    Grid.SetRow((UIElement)bingoButton, j);
+                    Grid.SetColumn((UIElement)bingoButton, i);
+                    grid.Children.Add((UIElement)bingoButton);
                 }
             }
             Grid main = (Grid)FindName("Main");
@@ -148,9 +160,9 @@ namespace Bingo
                     bool[,] tab = new bool[size, size];
                     foreach (var childs in buttons.Children)
                     {
-                        if (childs is BingoButton bingoButton)
+                        if (childs is IBingoButton bingoButton)
                         {
-                            tab[bingoButton.id / size, bingoButton.id % size] = bingoButton.currentState;
+                            tab[bingoButton.Id / size, bingoButton.Id % size] = bingoButton.CurrentState;
                         }
                     }
 

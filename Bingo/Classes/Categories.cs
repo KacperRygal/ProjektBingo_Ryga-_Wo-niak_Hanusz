@@ -8,7 +8,8 @@ namespace Bingo.Classes
 {
     public enum Categories
     {
-        Miasto,
-        Wies
+        Empty,
+        City,
+        Village
     }
 }

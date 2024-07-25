@@ -1,127 +1,255 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<City>
-	<Object>
-		<Id>0</Id>
-		<Name>Kapelusz</Name>
-  </Object>
-  <Object>
-		<Id>1</Id>
-		<Name>Pies</Name>
-  </Object>
-  <Object>
-		<Id>2</Id>
-		<Name>Kolorowe włosy</Name>
-  </Object>
-  <Object>
-		<Id>3</Id>
-		<Name>Afroamerykanin</Name>
-  </Object>
-  <Object>
-		<Id>4</Id>
-		<Name>Kot</Name>
-  </Object>
-  <Object>
-		<Id>5</Id>
-		<Name>Flaga Polski</Name>
-  </Object>
-  <Object>
-		<Id>6</Id>
-		<Name>Flaga innego kraju niż Polska</Name>
-  </Object>
-  <Object>
-		<Id>7</Id>
-		<Name>Różowy plecak</Name>
-  </Object>
-  <Object>
-		<Id>8</Id>
-		<Name>Skaterzy</Name>
-  </Object>
-  <Object>
-		<Id>9</Id>
-		<Name>Zielone auto</Name>
-  </Object>
-  <Object>
-		<Id>10</Id>
-		<Name>Czerwone auto</Name>
-  </Object>
-  <Object>
-		<Id>11</Id>
-		<Name>Flaga LGBT</Name>
-  </Object>
-  <Object>
-		<Id>12</Id>
-		<Name>Ktoś z kebabem</Name>
-  </Object>
-  <Object>
-		<Id>13</Id>
-		<Name>Herb piłkarski</Name>
-  </Object>
-  <Object>
-		<Id>14</Id>
-		<Name>Grafitti</Name>
-  </Object>
-  <Object>
-		<Id>15</Id>
-		<Name>Muzykanci</Name>
-  </Object>
-  <Object>
-		<Id>16</Id>
-		<Name>Robotnicy</Name>
-  </Object>
-  <Object>
-		<Id>17</Id>
-		<Name>Popsuty znak</Name>
-  </Object>
-  <Object>
-		<Id>18</Id>
-		<Name>Czerwone auto</Name>
-  </Object>
-  <Object>
-		<Id>19</Id>
-		<Name>Motor</Name>
-  </Object>
-  <Object>
-		<Id>20</Id>
-		<Name>Tesla</Name>
-  </Object>
-  <Object>
-		<Id>21</Id>
-		<Name>Człowiek w klapkach</Name>
-  </Object>
-  <Object>
-		<Id>22</Id>
-		<Name>Picie piwa</Name>
-  </Object>
-  <Object>
-		<Id>23</Id>
-		<Name>Azjata</Name>
-  </Object>
-  <Object>
-		<Id>24</Id>
-		<Name>Kebab</Name>
-  </Object>
-  <Object>
-		<Id>25</Id>
-		<Name>Rude włosy</Name>
-  </Object>
-  <Object>
-		<Id>26</Id>
-		<Name>Czarne włosy</Name>
-  </Object>
-  <Object>
-		<Id>27</Id>
-		<Name>Brązowe włosy</Name>
-  </Object>
-  <Object>
-		<Id>28</Id>
-		<Name>Brak włosów</Name>
-  </Object>
-  <Object>
-		<Id>29</Id>
-		<Name>Przekleństwo</Name>
-  </Object>
-  <Object>
-		<Id>30</Id>
-		<Name>Piłka</Name>
-  </Object>
-</City>
+<Main>
+	<City>
+		<Object>
+			<Id>0</Id>
+			<Name>Kapelusz</Name>
+	  </Object>
+	  <Object>
+			<Id>1</Id>
+			<Name>Pies</Name>
+	  </Object>
+	  <Object>
+			<Id>2</Id>
+			<Name>Kolorowe włosy</Name>
+	  </Object>
+	  <Object>
+			<Id>3</Id>
+			<Name>Afroamerykanin</Name>
+	  </Object>
+	  <Object>
+			<Id>4</Id>
+			<Name>Kot</Name>
+	  </Object>
+	  <Object>
+			<Id>5</Id>
+			<Name>Flaga Polski</Name>
+	  </Object>
+	  <Object>
+			<Id>6</Id>
+			<Name>Flaga innego kraju niż Polska</Name>
+	  </Object>
+	  <Object>
+			<Id>7</Id>
+			<Name>Różowy plecak</Name>
+	  </Object>
+	  <Object>
+			<Id>8</Id>
+			<Name>Skaterzy</Name>
+	  </Object>
+	  <Object>
+			<Id>9</Id>
+			<Name>Zielone auto</Name>
+	  </Object>
+	  <Object>
+			<Id>10</Id>
+			<Name>Czerwone auto</Name>
+	  </Object>
+	  <Object>
+			<Id>11</Id>
+			<Name>Flaga LGBT</Name>
+	  </Object>
+	  <Object>
+			<Id>12</Id>
+			<Name>Ktoś z kebabem</Name>
+	  </Object>
+	  <Object>
+			<Id>13</Id>
+			<Name>Herb piłkarski</Name>
+	  </Object>
+	  <Object>
+			<Id>14</Id>
+			<Name>Grafitti</Name>
+	  </Object>
+	  <Object>
+			<Id>15</Id>
+			<Name>Muzykanci</Name>
+	  </Object>
+	  <Object>
+			<Id>16</Id>
+			<Name>Robotnicy</Name>
+	  </Object>
+	  <Object>
+			<Id>17</Id>
+			<Name>Popsuty znak</Name>
+	  </Object>
+	  <Object>
+			<Id>18</Id>
+			<Name>Czerwone auto</Name>
+	  </Object>
+	  <Object>
+			<Id>19</Id>
+			<Name>Motor</Name>
+	  </Object>
+	  <Object>
+			<Id>20</Id>
+			<Name>Tesla</Name>
+	  </Object>
+	  <Object>
+			<Id>21</Id>
+			<Name>Człowiek w klapkach</Name>
+	  </Object>
+	  <Object>
+			<Id>22</Id>
+			<Name>Picie piwa</Name>
+	  </Object>
+	  <Object>
+			<Id>23</Id>
+			<Name>Azjata</Name>
+	  </Object>
+	  <Object>
+			<Id>24</Id>
+			<Name>Kebab</Name>
+	  </Object>
+	  <Object>
+			<Id>25</Id>
+			<Name>Rude włosy</Name>
+	  </Object>
+	  <Object>
+			<Id>26</Id>
+			<Name>Czarne włosy</Name>
+	  </Object>
+	  <Object>
+			<Id>27</Id>
+			<Name>Brązowe włosy</Name>
+	  </Object>
+	  <Object>
+			<Id>28</Id>
+			<Name>Brak włosów</Name>
+	  </Object>
+	  <Object>
+			<Id>29</Id>
+			<Name>Przekleństwo</Name>
+	  </Object>
+	  <Object>
+			<Id>30</Id>
+			<Name>Piłka</Name>
+	  </Object>
+	</City>
+	<Village>
+		<Object>
+			<Id>0</Id>
+			<Name>Kura</Name>
+	  </Object>
+	  <Object>
+			<Id>1</Id>
+			<Name>Kogut</Name>
+	  </Object>
+	  <Object>
+			<Id>2</Id>
+			<Name>Krowa</Name>
+	  </Object>
+	  <Object>
+			<Id>3</Id>
+			<Name>Wiadro z mlekiem</Name>
+	  </Object>
+	  <Object>
+			<Id>4</Id>
+			<Name>Kot</Name>
+	  </Object>
+	  <Object>
+			<Id>5</Id>
+			<Name>Pies</Name>
+	  </Object>
+	  <Object>
+			<Id>6</Id>
+			<Name>Karmnik</Name>
+	  </Object>
+	  <Object>
+			<Id>7</Id>
+			<Name>Traktor</Name>
+	  </Object>
+	  <Object>
+			<Id>8</Id>
+			<Name>Snop siana</Name>
+	  </Object>
+	  <Object>
+			<Id>9</Id>
+			<Name>Kombajn</Name>
+	  </Object>
+	  <Object>
+			<Id>10</Id>
+			<Name>Pole rolne</Name>
+	  </Object>
+	  <Object>
+			<Id>11</Id>
+			<Name>Gęś</Name>
+	  </Object>
+	  <Object>
+			<Id>12</Id>
+			<Name>Świnia</Name>
+	  </Object>
+	  <Object>
+			<Id>13</Id>
+			<Name>Zbiornik wodny</Name>
+	  </Object>
+	  <Object>
+			<Id>14</Id>
+			<Name>Silos</Name>
+	  </Object>
+	  <Object>
+			<Id>15</Id>
+			<Name>Obora</Name>
+	  </Object>
+	  <Object>
+			<Id>16</Id>
+			<Name>Widły</Name>
+	  </Object>
+	  <Object>
+			<Id>17</Id>
+			<Name>Grzyb</Name>
+	  </Object>
+	  <Object>
+			<Id>18</Id>
+			<Name>Kaczka</Name>
+	  </Object>
+	  <Object>
+			<Id>19</Id>
+			<Name>Kalosze</Name>
+	  </Object>
+	  <Object>
+			<Id>20</Id>
+			<Name>Owca</Name>
+	  </Object>
+	  <Object>
+			<Id>21</Id>
+			<Name>Studnia</Name>
+	  </Object>
+	  <Object>
+			<Id>22</Id>
+			<Name>Ognisko</Name>
+	  </Object>
+	  <Object>
+			<Id>23</Id>
+			<Name>Altanka</Name>
+	  </Object>
+	  <Object>
+			<Id>24</Id>
+			<Name>Kukurydza</Name>
+	  </Object>
+	  <Object>
+			<Id>25</Id>
+			<Name>Kobieta w chuście</Name>
+	  </Object>
+	  <Object>
+			<Id>26</Id>
+			<Name>Mężczyzna w szelkach</Name>
+	  </Object>
+	  <Object>
+			<Id>27</Id>
+			<Name>Ławeczka przy domu</Name>
+	  </Object>
+	  <Object>
+			<Id>28</Id>
+			<Name>Maliny</Name>
+	  </Object>
+	  <Object>
+			<Id>29</Id>
+			<Name>Jabłonka</Name>
+	  </Object>
+	  <Object>
+			<Id>30</Id>
+			<Name>Piłka</Name>
+	  </Object>
+	</Village>
+</Main>

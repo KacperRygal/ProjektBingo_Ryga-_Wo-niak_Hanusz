@@ -20,7 +20,7 @@ namespace Bingo
     {
         private int BoardSize { get; set; } = 5;
         private GameType GameType { get; set; } = GameType.Numbers;
-        private Categories? Category { get; set; } = null;
+        private Categories Category { get; set; } = Categories.Empty;
 
         public SoloChoose()
         {
@@ -40,7 +40,7 @@ namespace Bingo
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = new GameWindow(BoardSize, GameType);
+            GameWindow gameWindow = new GameWindow(BoardSize, GameType, Category);
             gameWindow.Show();
             this.Close();
         } 
@@ -91,10 +91,10 @@ namespace Bingo
             { 
                 case 0:
                 default:
-                    Category = Categories.Miasto;
+                    Category = Categories.City;
                     break;
                 case 1:
-                    Category = Categories.Wies;
+                    Category = Categories.Village;
                     break;
             }
         }
