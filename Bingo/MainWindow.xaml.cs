@@ -30,5 +30,12 @@ namespace Bingo
             soloChoose.Show();
             this.Close();
         }
+
+        private void btnMulti_Click(object sender, RoutedEventArgs e)
+        {
+            Multiplayer multiplayer = new Multiplayer();
+            multiplayer.Show();
+            this.Close();
+        }
     }
 }
