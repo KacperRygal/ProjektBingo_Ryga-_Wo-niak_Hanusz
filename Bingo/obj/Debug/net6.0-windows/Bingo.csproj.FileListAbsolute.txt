@@ -50,3 +50,4 @@ D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\Bingo.cspr
 D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\Bingo.sourcelink.json
 D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\Bingo.genruntimeconfig.cache
 D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\ref\Bingo.dll
+D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\bin\Debug\net6.0-windows\Data\data.xml

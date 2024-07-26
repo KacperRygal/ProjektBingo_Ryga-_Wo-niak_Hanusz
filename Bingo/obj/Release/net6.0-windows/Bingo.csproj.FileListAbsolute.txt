@@ -25,3 +25,4 @@ D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\obj\Release\net6.0-windows\Bingo.ge
 D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\obj\Release\net6.0-windows\ref\Bingo.dll
 D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\obj\Release\net6.0-windows\Multiplayer.g.cs
 D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\obj\Release\net6.0-windows\Multiplayer.baml
+D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\bin\Release\net6.0-windows\Data\data.xml

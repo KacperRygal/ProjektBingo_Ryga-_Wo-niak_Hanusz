@@ -32,7 +32,7 @@ namespace Bingo
         private DispatcherTimer secondTimer;
         private int currentTime = 10;
         private int[] numbers;
-        private string path = "..\\..\\..\\Data\\data.xml";
+        private string path = "Data\\data.xml";
         private int counter;
         private XDocument doc;
         public GameWindow(int size, GameType gameType, Categories category)

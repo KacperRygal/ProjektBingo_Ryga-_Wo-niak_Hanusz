@@ -75,7 +75,7 @@
               "RelativeDocumentMoniker": "GameWindow.xaml.cs",
               "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\GameWindow.xaml.cs",
               "RelativeToolTip": "GameWindow.xaml.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAA9wC4AAAAgAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAowCIAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-25T21:55:56.897Z",
               "EditorCaption": ""
@@ -90,7 +90,8 @@
               "RelativeToolTip": "App.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T22:14:37.581Z"
+              "WhenOpened": "2024-07-25T22:14:37.581Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -102,7 +103,8 @@
               "RelativeToolTip": "AssemblyInfo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T22:14:39.273Z"
+              "WhenOpened": "2024-07-25T22:14:39.273Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
