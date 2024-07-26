@@ -42,9 +42,9 @@ namespace Bingo
             this.gameType = gameType;
             this.category = category;
             gameManager = new GameManager();
-            
+
             doc = XDocument.Load(path);
-            if(category != Categories.Empty)
+            if (category != Categories.Empty)
             {
                 Debug.WriteLine(doc.Element("Main").Element(category.ToString()));
                 XElement cat = doc.Element("Main").Element(category.ToString());
@@ -59,7 +59,15 @@ namespace Bingo
             txbTimer.Text = currentTime.ToString();
 
         }
+        //zamysł jest taki ,żeby ta funkcja się wykonywała w nieskończonośc najlepiej żeby 
+        //GameWindow jakoś było inicjalisowane w tej(nie musi byćj TEJ) funkcji w umożliwiało wykonywanie się tej funkcj w nieskończoność
+        //Zobacz na Siec.cs jak tam wygląda Serwer i Klient, w miejsce "Gra" weszła by ta funkcja
 
+        public void Game()
+        {
+           
+
+        }
 
         private void SecondTimer_Tick(object sender, EventArgs e)
         {

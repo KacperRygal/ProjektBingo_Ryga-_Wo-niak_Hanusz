@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bingo.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,27 @@ namespace Bingo
     /// </summary>
     public partial class Multiplayer : Window
     {
+        private int BoardSize { get; set; } = 5;
+        private GameType GameType { get; set; } = GameType.Numbers;
+        private Categories Category { get; set; } = Categories.Empty;
+
         public Multiplayer()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Serwer_Click(object sender, RoutedEventArgs e)
         {
+            Siec siec = new Siec(Multi.Serwer, this.daneIP.Text, BoardSize, GameType, Category);
+            //cos powinno sie pokazac
+            this.Close();
+        }
 
+        private void Klient_Click(object sender, RoutedEventArgs e)
+        {
+            Siec siec=new Siec(Multi.Klient,this.daneIP.Text, BoardSize, GameType, Category);
+            //cos powinno sie pokazac
+            this.Close();
         }
     }
 }

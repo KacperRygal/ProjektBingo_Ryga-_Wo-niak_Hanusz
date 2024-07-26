@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="Multiplayer" Height="450" Width="800">
     <Grid>
-        <Button x:Name="Serwer" Content="Hostuj gre" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" Height="85" Width="180" Click="Button_Click"/>
-        <Button x:Name="Klient" Content="Dołącz do gry" HorizontalAlignment="Center" Margin="0,301,0,0" VerticalAlignment="Top" Height="85" Width="180"/>
+        <Button x:Name="Serwer" Content="Hostuj gre" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" Height="85" Width="180" Click="Serwer_Click"/>
+        <Button x:Name="Klient" Content="Dołącz do gry" HorizontalAlignment="Center" Margin="0,301,0,0" VerticalAlignment="Top" Height="85" Width="180" Click="Klient_Click"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False"><Run Language="pl-pl" Text="Podaj IP:"/></TextBlock>
-        <TextBox HorizontalAlignment="Center" Margin="0,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="daneIP" HorizontalAlignment="Center" Margin="0,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
