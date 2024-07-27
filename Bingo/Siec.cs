@@ -35,7 +35,10 @@ namespace Bingo
         static string IP;
         static bool czySerwer;
         static GameWindow gameWindow;
-        static string  test="";
+        static string  wiadomosc="";
+        static string msgSerwer="";
+        static string msgClient="";
+
 
         public Siec(Multi multi,string ip,int bSize,GameType gType,Categories Cat)
         {
@@ -162,6 +165,7 @@ namespace Bingo
                     string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                     //wiadomosc przesylana z klienta
                     Debug.WriteLine(message + '\n');
+                    msgSerwer = message;
                 }
             }
             else
@@ -172,6 +176,7 @@ namespace Bingo
                     string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                     //wiadomosc przesylana z serwera
                     Debug.WriteLine(message + '\n');
+                    msgClient = message;
                 }
             }
         }
@@ -186,8 +191,8 @@ namespace Bingo
                 {
                     Thread.Sleep(500);
                     //wiadomość przesyłana do klienta
-                    string message = "Serwer: "+test ;
-
+                    //string message = "Serwer: "+test ;
+                    string message = wiadomosc;
                     byte[] data = Encoding.ASCII.GetBytes(message);
                     stream.Write(data, 0, data.Length);
                 }
@@ -198,8 +203,8 @@ namespace Bingo
                 {
                     Thread.Sleep(500);
                     //wiadomość przesyłana do serwera
-                    string message = "Klient: "+ test;
-
+                    //string message = "Klient: "+ test;
+                    string message = wiadomosc;
                     byte[] data = Encoding.ASCII.GetBytes(message);
                     stream.Write(data, 0, data.Length);
 
@@ -208,31 +213,38 @@ namespace Bingo
 
 
         }
-        //Tu wszystkie getery/setery
+        //Tu ogólne getery/setery
+        //przesyłana jest 'wiadomosc'
         static void Update()
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                test = gameWindow.numer();
+                wiadomosc = gameWindow.numer();
             });
         }
         static void Gra()
         {
-            //pętla zarządzająca logiką gry
-            //wszelkie jej ustawienia powinny być ustawiane przed pętlą
+
             while (true)
             {
                 Thread.Sleep(120);
 
-                //nie wiem czy 'ruchy' bedą się różniły 
-                //nie powinny ale daje możliwość rozróżnienia
+                //tu setery/getery szzczególne dla  
+                //msgSerwer/msgClient -to informacja DLA Serwera/Klienta
                 if (czySerwer)
                 {
-                    // 'ruchy' serwera
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        gameWindow.przeslana.Text = msgSerwer;
+                    });
+                    
                 }
                 else
                 {
-                    // 'ruchy' klienta
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        gameWindow.przeslana.Text = msgClient;
+                    });
                 }
 
                 Update();
