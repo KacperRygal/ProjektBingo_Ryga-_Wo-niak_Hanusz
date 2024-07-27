@@ -35,6 +35,7 @@ namespace Bingo
         static string IP;
         static bool czySerwer;
         static GameWindow gameWindow;
+        static string  test="";
 
         public Siec(Multi multi,string ip,int bSize,GameType gType,Categories Cat)
         {
@@ -60,8 +61,15 @@ namespace Bingo
         //nie tykać
         static async Task StartServerAsync(int bSize, GameType gType, Categories Cat)
         {
-            gameWindow = new GameWindow(bSize, gType, Cat);
-            gameWindow.Show();
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                gameWindow = new GameWindow(bSize, gType, Cat);
+                gameWindow.Show();
+            });
+            //gameWindow = new GameWindow(bSize, gType, Cat);
+            //gameWindow.Show();
+
+            czySerwer= true;
             IPAddress ipAddress = IPAddress.Parse(GetLocalIPAddress());
             int port = 12345;
 
@@ -92,8 +100,14 @@ namespace Bingo
 
         static async Task StartClient(int bSize, GameType gType, Categories Cat)
         {
-            gameWindow = new GameWindow(bSize, gType, Cat);
-            gameWindow.Show();
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                gameWindow = new GameWindow(bSize, gType, Cat);
+                gameWindow.Show();
+            });
+            //gameWindow = new GameWindow(bSize, gType, Cat);
+            //gameWindow.Show();
+
             czySerwer = false;
             string serverIp = IP;
             int serverPort = 12345;
@@ -112,6 +126,10 @@ namespace Bingo
 
             Thread graThread = new Thread(Gra);
             graThread.Start();
+
+            //receiveThread.Join();
+            //sendThread.Join();
+            //graThread.Join();
         }
 
         static string GetLocalIPAddress()
@@ -168,7 +186,7 @@ namespace Bingo
                 {
                     Thread.Sleep(500);
                     //wiadomość przesyłana do klienta
-                    string message = "Serwer: " ;
+                    string message = "Serwer: "+test ;
 
                     byte[] data = Encoding.ASCII.GetBytes(message);
                     stream.Write(data, 0, data.Length);
@@ -180,7 +198,7 @@ namespace Bingo
                 {
                     Thread.Sleep(500);
                     //wiadomość przesyłana do serwera
-                    string message = "Klient: "  ;
+                    string message = "Klient: "+ test;
 
                     byte[] data = Encoding.ASCII.GetBytes(message);
                     stream.Write(data, 0, data.Length);
@@ -190,10 +208,13 @@ namespace Bingo
 
 
         }
+        //Tu wszystkie getery/setery
         static void Update()
         {
-
-            //aktualizująca i zapętlająca się logika gry
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                test = gameWindow.numer();
+            });
         }
         static void Gra()
         {
@@ -203,7 +224,7 @@ namespace Bingo
             {
                 Thread.Sleep(120);
 
-                //nie wiem czy ruchy bedą się różniły 
+                //nie wiem czy 'ruchy' bedą się różniły 
                 //nie powinny ale daje możliwość rozróżnienia
                 if (czySerwer)
                 {

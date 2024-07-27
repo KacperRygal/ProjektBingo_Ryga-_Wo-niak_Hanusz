@@ -62,7 +62,10 @@ namespace Bingo
         //zamysł jest taki ,żeby funkcja się wykonywała w nieskończonośc najlepiej żeby ..
         //trzeba by zrobić gettery i settery żeby uaktualniać stan planszy, wejdzie to w funkcje 'Gra' albo 'Update' w pliku 'Siec.cs'
 
-
+        public string numer()
+        {
+            return txbGeneratedNumber.Text.ToLower();
+        }
         private void SecondTimer_Tick(object sender, EventArgs e)
         {
             currentTime--;
