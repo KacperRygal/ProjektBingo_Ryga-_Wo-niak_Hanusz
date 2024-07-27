@@ -59,15 +59,9 @@ namespace Bingo
             txbTimer.Text = currentTime.ToString();
 
         }
-        //zamysł jest taki ,żeby ta funkcja się wykonywała w nieskończonośc najlepiej żeby 
-        //GameWindow jakoś było inicjalisowane w tej(nie musi byćj TEJ) funkcji w umożliwiało wykonywanie się tej funkcj w nieskończoność
-        //Zobacz na Siec.cs jak tam wygląda Serwer i Klient, w miejsce "Gra" weszła by ta funkcja
+        //zamysł jest taki ,żeby funkcja się wykonywała w nieskończonośc najlepiej żeby ..
+        //trzeba by zrobić gettery i settery żeby uaktualniać stan planszy, wejdzie to w funkcje 'Gra' albo 'Update' w pliku 'Siec.cs'
 
-        public void Game()
-        {
-           
-
-        }
 
         private void SecondTimer_Tick(object sender, EventArgs e)
         {
@@ -94,7 +88,6 @@ namespace Bingo
             }
             txbTimer.Text = currentTime.ToString();
         }
-
 
         private void CreateGridOfButtons()
         {

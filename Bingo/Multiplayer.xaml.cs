@@ -32,14 +32,12 @@ namespace Bingo
         private void Serwer_Click(object sender, RoutedEventArgs e)
         {
             Siec siec = new Siec(Multi.Serwer, this.daneIP.Text, BoardSize, GameType, Category);
-            //cos powinno sie pokazac
             this.Close();
         }
 
         private void Klient_Click(object sender, RoutedEventArgs e)
         {
             Siec siec=new Siec(Multi.Klient,this.daneIP.Text, BoardSize, GameType, Category);
-            //cos powinno sie pokazac
             this.Close();
         }
     }

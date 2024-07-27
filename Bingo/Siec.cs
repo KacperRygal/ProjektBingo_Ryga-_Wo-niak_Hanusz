@@ -11,6 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Xps.Serialization;
 using System.Diagnostics;
 using Bingo.Classes;
+using System.Data;
 
 namespace Bingo
 {
@@ -38,14 +39,16 @@ namespace Bingo
         public Siec(Multi multi,string ip,int bSize,GameType gType,Categories Cat)
         {
             IP = ip;
+            GameType=gType;
+            Category = Cat;
 
             switch (multi)
             {
                 case Multi.Serwer:
-                    StartServer();
+                    StartServerAsync( bSize,gType,Cat);
                     break;
                 case Multi.Klient:
-                    StartClient();
+                    StartClient(bSize,gType,Cat);
                     break;
                 default:
                     break;
@@ -55,10 +58,10 @@ namespace Bingo
 
 
         //nie tykać
-        static void StartServer()
+        static async Task StartServerAsync(int bSize, GameType gType, Categories Cat)
         {
-            //  Console.Title = "Serwer";
-            czySerwer = true;
+            gameWindow = new GameWindow(bSize, gType, Cat);
+            gameWindow.Show();
             IPAddress ipAddress = IPAddress.Parse(GetLocalIPAddress());
             int port = 12345;
 
@@ -66,8 +69,10 @@ namespace Bingo
             server.Start();
             Debug.WriteLine("Serwer uruchomiony...");
             Debug.WriteLine("Oczekiwanie na drugiego gracza...");
-            client = server.AcceptTcpClient();
+
+            client = await server.AcceptTcpClientAsync();
             Debug.WriteLine("Połączono z klientem.");
+
 
             Thread receiveThread = new Thread(ReceiveMessages);
             receiveThread.Start();
@@ -78,23 +83,26 @@ namespace Bingo
             Thread graThread = new Thread(Gra);
             graThread.Start();
 
-            receiveThread.Join();
-            sendThread.Join();
-            graThread.Join();
+         
+            //receiveThread.Join();
+            //sendThread.Join();
+            //graThread.Join();
         }
 
-        //nie tykać
-        static void StartClient()
-        {
-            Console.Title = "Klient";
 
+        static async Task StartClient(int bSize, GameType gType, Categories Cat)
+        {
+            gameWindow = new GameWindow(bSize, gType, Cat);
+            gameWindow.Show();
             czySerwer = false;
             string serverIp = IP;
             int serverPort = 12345;
 
             client = new TcpClient();
-            client.Connect(serverIp, serverPort);
-            Console.WriteLine("Połączono z serwerem.");
+            Debug.WriteLine("Łączenie z klientem...");
+            await client.ConnectAsync(serverIp, serverPort);
+
+            Debug.WriteLine("Połączono z serwerem.");
 
             Thread receiveThread = new Thread(ReceiveMessages);
             receiveThread.Start();
@@ -104,12 +112,8 @@ namespace Bingo
 
             Thread graThread = new Thread(Gra);
             graThread.Start();
-
-            receiveThread.Join();
-            sendThread.Join();
-            graThread.Join();
         }
-        //nie tykać
+
         static string GetLocalIPAddress()
         {
             string ipAddress = "";
@@ -139,7 +143,7 @@ namespace Bingo
                     int bytesRead = stream.Read(buffer, 0, buffer.Length);
                     string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                     //wiadomosc przesylana z klienta
-                    Console.Write(message + '\n');
+                    Debug.WriteLine(message + '\n');
                 }
             }
             else
@@ -149,7 +153,7 @@ namespace Bingo
                     int bytesRead = stream.Read(buffer, 0, buffer.Length);
                     string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                     //wiadomosc przesylana z serwera
-                    Console.Write(message + '\n');
+                    Debug.WriteLine(message + '\n');
                 }
             }
         }
@@ -164,7 +168,7 @@ namespace Bingo
                 {
                     Thread.Sleep(500);
                     //wiadomość przesyłana do klienta
-                    string message = "Serwer: " + Console.ReadLine();
+                    string message = "Serwer: " ;
 
                     byte[] data = Encoding.ASCII.GetBytes(message);
                     stream.Write(data, 0, data.Length);
@@ -176,7 +180,7 @@ namespace Bingo
                 {
                     Thread.Sleep(500);
                     //wiadomość przesyłana do serwera
-                    string message = "Klient: " + Console.ReadLine();
+                    string message = "Klient: "  ;
 
                     byte[] data = Encoding.ASCII.GetBytes(message);
                     stream.Write(data, 0, data.Length);
@@ -193,7 +197,6 @@ namespace Bingo
         }
         static void Gra()
         {
-            /*
             //pętla zarządzająca logiką gry
             //wszelkie jej ustawienia powinny być ustawiane przed pętlą
             while (true)
@@ -213,10 +216,7 @@ namespace Bingo
 
                 Update();
             }
-            */
 
-            //tu ma być ta funkcja
-            gameWindow.Game();
         }
     }
 }
