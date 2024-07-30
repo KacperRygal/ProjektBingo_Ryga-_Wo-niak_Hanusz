@@ -25,6 +25,7 @@ namespace Bingo
     }
     public class Siec
     {
+
         private int BoardSize { get; set; } = 5;
         private GameType GameType { get; set; } = GameType.Numbers;
         private Categories Category { get; set; } = Categories.Empty;
@@ -38,6 +39,7 @@ namespace Bingo
         static string  wiadomosc="";
         static string msgSerwer="";
         static string msgClient="";
+        static string[] dekode;
 
 
         public Siec(Multi multi,string ip,int bSize,GameType gType,Categories Cat)
@@ -69,8 +71,6 @@ namespace Bingo
                 gameWindow = new GameWindow(bSize, gType, Cat);
                 gameWindow.Show();
             });
-            //gameWindow = new GameWindow(bSize, gType, Cat);
-            //gameWindow.Show();
 
             czySerwer= true;
             IPAddress ipAddress = IPAddress.Parse(GetLocalIPAddress());
@@ -130,10 +130,23 @@ namespace Bingo
             Thread graThread = new Thread(Gra);
             graThread.Start();
 
+            //Thread shutdown = new Thread(koniec);
+            //shutdown.Start();
             //receiveThread.Join();
             //sendThread.Join();
             //graThread.Join();
         }
+
+        //static void koniec()
+        //{
+        //    while (true)
+        //    {
+        //        if (gameWindow.Closing)
+        //        {
+        //              Application.Current.Shutdown();
+        //        }
+        //    }
+        //}
 
         static string GetLocalIPAddress()
         {
@@ -156,77 +169,110 @@ namespace Bingo
         {
             NetworkStream stream = client.GetStream();
             byte[] buffer = new byte[1024];
-
-            if (czySerwer)
+            try
             {
-                while (true)
+                if (czySerwer)
                 {
-                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
-                    string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
-                    //wiadomosc przesylana z klienta
-                    Debug.WriteLine(message + '\n');
-                    msgSerwer = message;
+                    while (true)
+                    {
+
+
+                        int bytesRead = stream.Read(buffer, 0, buffer.Length);
+                        string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                        //wiadomosc przesylana z klienta
+                        Debug.WriteLine(message + '\n');
+                        msgSerwer = message;
+                    }
+                }
+                else
+                {
+                    while (true)
+                    {
+
+
+                        int bytesRead = stream.Read(buffer, 0, buffer.Length);
+                        string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                        //wiadomosc przesylana z serwera
+                        Debug.WriteLine(message + '\n');
+                        msgClient = message;
+                    }
                 }
             }
-            else
+            catch (Exception e)
             {
-                while (true)
-                {
-                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
-                    string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
-                    //wiadomosc przesylana z serwera
-                    Debug.WriteLine(message + '\n');
-                    msgClient = message;
-                }
+                Thread.CurrentThread.Interrupt();
             }
         }
 
         static void SendMessages()
         {
             NetworkStream stream = client.GetStream();
-
-            if (czySerwer)
+            try
             {
-                while (true)
+                if (czySerwer)
                 {
-                    Thread.Sleep(500);
-                    //wiadomość przesyłana do klienta
-                    //string message = "Serwer: "+test ;
-                    string message = wiadomosc;
-                    byte[] data = Encoding.ASCII.GetBytes(message);
-                    stream.Write(data, 0, data.Length);
+                    while (true)
+                    {
+                        Thread.Sleep(500);
+                        Przesylana();
+                        //wiadomość przesyłana do klienta
+                        //string message = "Serwer: "+test ;
+                        string message = wiadomosc;
+                        byte[] data = Encoding.ASCII.GetBytes(message);
+                        stream.Write(data, 0, data.Length);
+                    }
+                }
+                else
+                {
+
+                    while (true)
+                    {
+                        Thread.Sleep(500);
+                        Przesylana();
+                        //wiadomość przesyłana do serwera
+                        //string message = "Klient: "+ test;
+                        string message = wiadomosc;
+                        byte[] data = Encoding.ASCII.GetBytes(message);
+                        stream.Write(data, 0, data.Length);
+
+                    }
                 }
             }
-            else
+            catch (Exception e)
             {
-                while (true)
-                {
-                    Thread.Sleep(500);
-                    //wiadomość przesyłana do serwera
-                    //string message = "Klient: "+ test;
-                    string message = wiadomosc;
-                    byte[] data = Encoding.ASCII.GetBytes(message);
-                    stream.Write(data, 0, data.Length);
-
-                }
+                Thread.CurrentThread.Interrupt();
             }
 
 
         }
-        //Tu ogólne getery/setery
         //przesyłana jest 'wiadomosc'
-        static void Update()
+        static void Przesylana()
         {
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                wiadomosc = gameWindow.numer();
-            });
+            try { 
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    if (czySerwer)
+                    {
+                        wiadomosc = gameWindow.numer();
+                        wiadomosc += " " + gameWindow.txbTimer.Text.ToString();
+                    }
+                    else
+                    {
+
+                    }
+
+                });
+            }
+            catch {
+                Thread.CurrentThread.Interrupt();
+            }
         }
         static void Gra()
         {
 
             while (true)
             {
+<<<<<<< Updated upstream
                 Thread.Sleep(120);
 
                 //tu setery/getery szzczególne dla  
@@ -246,10 +292,37 @@ namespace Bingo
                         gameWindow.przeslana.Text = msgClient;
                     });
                 }
+=======
+                try
+                {
+                    Thread.Sleep(120);
+                    //tu setery/getery szzczególne dla  
+                    //msgSerwer/msgClient -to informacja DLA Serwera/Klienta
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        if (czySerwer)
+                        {
+                            gameWindow.przeslana.Text = msgSerwer;
+                        }
+                        else
+                        {
+                            dekode = msgClient.Split(' ');
+>>>>>>> Stashed changes
 
-                Update();
+                            gameWindow.txbGeneratedNumber.Text = dekode[0];
+                            //musi być
+                            if (dekode.Length > 1)
+                            {
+                                gameWindow.txbTimer.Text = dekode[1];
+                            }
+                        }
+                    });
+                }
+                catch (Exception e)
+                {
+                    Thread.CurrentThread.Interrupt();
+                }
             }
-
         }
     }
 }

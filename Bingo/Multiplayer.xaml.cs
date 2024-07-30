@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,6 +29,24 @@ namespace Bingo
         public Multiplayer()
         {
             InitializeComponent();
+            this.txtIPserw.Text = IPAddress.Parse(GetLocalIPAddress()).ToString();
+
+        }
+        static string GetLocalIPAddress()
+        {
+            string ipAddress = "";
+            IPHostEntry hostEntry = Dns.GetHostEntry(Dns.GetHostName());
+
+            foreach (IPAddress ip in hostEntry.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    ipAddress = ip.ToString();
+                    break;
+                }
+            }
+
+            return ipAddress;
         }
 
         private void Serwer_Click(object sender, RoutedEventArgs e)
