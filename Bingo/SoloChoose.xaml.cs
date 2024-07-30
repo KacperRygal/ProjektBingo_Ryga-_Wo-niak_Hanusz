@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -36,12 +37,13 @@ namespace Bingo
 
             lstCategory.Items.Add("Miasto");
             lstCategory.Items.Add("Wies");
-            gameManager = new GameManager();
+            
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             GameWindow gameWindow = new GameWindow(BoardSize, GameType, Category, gameManager);
+            gameManager = new GameManager(GameType, Category, gameWindow, true);
             gameWindow.Show();
             this.Close();
         } 

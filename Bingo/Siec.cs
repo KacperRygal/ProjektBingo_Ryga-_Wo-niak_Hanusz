@@ -40,23 +40,23 @@ namespace Bingo
         static string msgClient="";
 
 
-        public Siec(Multi multi,string ip,int bSize,GameType gType,Categories Cat)
+        public Siec(Multi multi,string ip,int bSize, GameType gType, Categories cat)
         {
             IP = ip;
             GameType=gType;
-            Category = Cat;
-            gameManager = new GameManager();
+            Category = cat;
             switch (multi)
             {
                 case Multi.Serwer:
-                    StartServerAsync( bSize,gType,Cat);
+                    StartServerAsync( bSize,gType,cat);
                     break;
                 case Multi.Klient:
-                    StartClient(bSize,gType,Cat);
+                    StartClient(bSize,gType,cat);
                     break;
                 default:
                     break;
             }
+            gameManager = new GameManager(gType, cat, gameWindow, czySerwer);
         }
 
 
@@ -232,21 +232,17 @@ namespace Bingo
 
                 //tu setery/getery szzczególne dla  
                 //msgSerwer/msgClient -to informacja DLA Serwera/Klienta
-                if (czySerwer)
+                Application.Current.Dispatcher.Invoke(() =>
                 {
-                    Application.Current.Dispatcher.Invoke(() =>
+                    if (czySerwer)
                     {
                         gameWindow.przeslana.Text = msgSerwer;
-                    });
-                    
-                }
-                else
-                {
-                    Application.Current.Dispatcher.Invoke(() =>
+                    }
+                    else
                     {
                         gameWindow.przeslana.Text = msgClient;
-                    });
-                }
+                    }
+                });
 
                 Update();
             }
