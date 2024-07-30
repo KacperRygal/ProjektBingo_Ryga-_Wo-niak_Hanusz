@@ -8,7 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="SerwerKlient\**" />
+    <EmbeddedResource Remove="SerwerKlient\**" />
+    <None Remove="SerwerKlient\**" />
+    <Page Remove="SerwerKlient\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\data.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

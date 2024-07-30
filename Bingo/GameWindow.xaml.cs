@@ -30,7 +30,7 @@ namespace Bingo
         private Categories category;
         private GameManager gameManager;
         private DispatcherTimer secondTimer;
-        private int currentTime;
+        private int currentTime = 10;
         private int[] numbers;
         private string path = "Data\\data.xml";
         private int counter;
@@ -41,83 +41,56 @@ namespace Bingo
             this.size = size;
             this.gameType = gameType;
             this.category = category;
-<<<<<<< Updated upstream
-            gameManager = new GameManager();
-            
-=======
             this.gameManager = gameManager;
 
->>>>>>> Stashed changes
             doc = XDocument.Load(path);
-            if(category != Categories.Empty)
+            if (category != Categories.Empty)
             {
                 Debug.WriteLine(doc.Element("Main").Element(category.ToString()));
                 XElement cat = doc.Element("Main").Element(category.ToString());
                 counter = cat.Elements("Object").Count();
-                
             }
             CreateGridOfButtons();
-
             secondTimer = new DispatcherTimer();
             secondTimer.Interval = TimeSpan.FromSeconds(1);
             secondTimer.Tick += SecondTimer_Tick;
             secondTimer.Start();
 
-            if (gameType == GameType.Numbers)
-            {
-                txbTimer.Text = currentTime.ToString();
-                currentTime = 10;
-            }
-            
-
-            if(gameType == GameType.FindObjects)
-            {
-                txbGeneratedNumber.Visibility = Visibility.Hidden;
-                txbTimer.Visibility = Visibility.Hidden;
-                lblTimer.Visibility = Visibility.Hidden;
-                lblTitle.Content = $"Find objects - {category.ToString()}";
-                currentTime = 0;
-            }
-
-            
+            txbTimer.Text = currentTime.ToString();
 
         }
+        //zamysł jest taki ,żeby funkcja się wykonywała w nieskończonośc najlepiej żeby ..
+        //trzeba by zrobić gettery i settery żeby uaktualniać stan planszy, wejdzie to w funkcje 'Gra' albo 'Update' w pliku 'Siec.cs'
 
-
+        public string numer()
+        {
+            return txbGeneratedNumber.Text.ToLower();
+        }
         private void SecondTimer_Tick(object sender, EventArgs e)
         {
-            if(category == Categories.Miasto)
-            {
-                currentTime++;
-            }
-            else
-            {
-                currentTime--;
-                if (currentTime == 0)
+            currentTime--;
+            if (currentTime == 0)
+            { 
+                currentTime = 10;
+                int generatedInt = gameManager.RandomValue(gameType, counter);
+                if (gameType == 0) txbGeneratedNumber.Text = generatedInt.ToString();
+                else
                 {
-                    currentTime = 1;
-                    int generatedInt = gameManager.RandomValue(gameType, counter);
-                    Debug.WriteLine("G" + generatedInt);
-                    if (gameType == 0) txbGeneratedNumber.Text = generatedInt.ToString();
-                    else
+                    doc = XDocument.Load(path);
+                    XElement? temp = doc
+                            .Descendants(category.ToString())
+                            .Descendants("Object")
+                            .FirstOrDefault(d => (int)d.Element("Id") == generatedInt);
+                    if (temp != null)
                     {
-                        doc = XDocument.Load(path);
-                        XElement? temp = doc
-                                .Descendants(category.ToString())
-                                .Descendants("Object")
-                                .FirstOrDefault(d => (int)d.Element("Id") == generatedInt);
-                        if (temp != null)
-                        {
-                            txbGeneratedNumber.Text = temp.Element("Name").Value;
-                        }
+                        txbGeneratedNumber.Text = temp.Element("Name").Value;
                     }
-
-                    BingoNumberButton.currentGeneratedValue = txbGeneratedNumber.Text;
                 }
-                txbTimer.Text = currentTime.ToString();
-            }
-        }
 
+                BingoNumberButton.currentGeneratedValue = txbGeneratedNumber.Text;
+            }
+            txbTimer.Text = currentTime.ToString();
+        }
 
         private void CreateGridOfButtons()
         {

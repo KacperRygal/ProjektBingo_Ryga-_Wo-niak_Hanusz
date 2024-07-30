@@ -10,8 +10,8 @@ namespace Bingo.Classes
     public class GameManager
     {
 
-        public GameManager() 
-        { 
+        public GameManager()
+        {
             numbers = new List<int>();
         }
 
@@ -36,9 +36,9 @@ namespace Bingo.Classes
             } while (numbers.Contains(generated));
             numbers.Add(generated);
             return generated;
-            
+
         }
 
-        
+
     }
 }

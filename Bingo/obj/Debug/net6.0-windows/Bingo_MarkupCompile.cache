@@ -10,19 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\App.xaml
-<<<<<<< Updated upstream
-3-1933548551
-
-141232541209
-1941709816142
-GameWindow.xaml;MainWindow.xaml;SoloChoose.xaml;
-=======
 4-365791776
 
 16-1420321382
 1941709816142
 GameWindow.xaml;MainWindow.xaml;Multiplayer.xaml;SoloChoose.xaml;
->>>>>>> Stashed changes
 
 False
 

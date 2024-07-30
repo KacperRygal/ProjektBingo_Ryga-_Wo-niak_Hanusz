@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\bin\Debug\net6.0-windows\Bingo.exe
-=======
 D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\bin\Debug\net6.0-windows\Bingo.exe
 D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\bin\Debug\net6.0-windows\Data\data.xml
 D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\bin\Debug\net6.0-windows\Bingo.deps.json
@@ -31,30 +28,21 @@ D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\Bingo.genr
 D:\Bingo_PRIR\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\ref\Bingo.dll
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\bin\Debug\net6.0-windows\Bingo.exe
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\bin\Debug\net6.0-windows\Data\data.xml
->>>>>>> Stashed changes
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\bin\Debug\net6.0-windows\Bingo.deps.json
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\bin\Debug\net6.0-windows\Bingo.runtimeconfig.json
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\bin\Debug\net6.0-windows\Bingo.dll
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\bin\Debug\net6.0-windows\Bingo.pdb
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\Bingo.csproj.AssemblyReference.cache
-<<<<<<< Updated upstream
-C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\MainWindow.g.cs
-=======
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\GameWindow.g.cs
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\Multiplayer.g.cs
->>>>>>> Stashed changes
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\SoloChoose.g.cs
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\Bingo_MarkupCompile.cache
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\Bingo_MarkupCompile.lref
-<<<<<<< Updated upstream
-C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\MainWindow.baml
-=======
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\GameWindow.baml
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\Multiplayer.baml
->>>>>>> Stashed changes
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\SoloChoose.baml
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\Bingo.g.resources
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\Bingo.GeneratedMSBuildEditorConfig.editorconfig
@@ -66,8 +54,3 @@ C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\Bingo.pdb
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\Bingo.genruntimeconfig.cache
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\ref\Bingo.dll
-<<<<<<< Updated upstream
-C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\GameWindow.g.cs
-C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\obj\Debug\net6.0-windows\GameWindow.baml
-=======
->>>>>>> Stashed changes

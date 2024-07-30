@@ -21,9 +21,7 @@ namespace Bingo
         private int BoardSize { get; set; } = 5;
         private GameType GameType { get; set; } = GameType.Numbers;
         private Categories Category { get; set; } = Categories.Empty;
-
         private GameManager gameManager;
-
         public SoloChoose()
         {
             InitializeComponent();

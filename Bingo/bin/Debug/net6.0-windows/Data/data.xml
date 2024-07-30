@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Main>
-	<Miasto>
+	<City>
 		<Object>
 			<Id>0</Id>
 			<Name>Kapelusz</Name>
@@ -125,8 +125,8 @@
 			<Id>30</Id>
 			<Name>Piłka</Name>
 	  </Object>
-	</Miasto>
-	<Wies>
+	</City>
+	<Village>
 		<Object>
 			<Id>0</Id>
 			<Name>Kura</Name>
@@ -251,5 +251,5 @@
 			<Id>30</Id>
 			<Name>Piłka</Name>
 	  </Object>
-	</Wies>
+	</Village>
 </Main>

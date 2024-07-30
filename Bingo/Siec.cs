@@ -30,7 +30,6 @@ namespace Bingo
         private Categories Category { get; set; } = Categories.Empty;
         static private GameManager gameManager;
 
-
         static TcpListener server;
         static TcpClient client;
         static string IP;
@@ -47,7 +46,6 @@ namespace Bingo
             GameType=gType;
             Category = Cat;
             gameManager = new GameManager();
-
             switch (multi)
             {
                 case Multi.Serwer:
@@ -76,6 +74,7 @@ namespace Bingo
 
             czySerwer= true;
             IPAddress ipAddress = IPAddress.Parse(GetLocalIPAddress());
+            
             int port = 12345;
 
             server = new TcpListener(ipAddress, port);
