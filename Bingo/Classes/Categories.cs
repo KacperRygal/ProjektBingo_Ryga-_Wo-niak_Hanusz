@@ -9,7 +9,7 @@ namespace Bingo.Classes
     public enum Categories
     {
         Empty,
-        City,
-        Village
+        Miasto,
+        Wies
     }
 }

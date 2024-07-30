@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,8 @@ namespace Bingo.Classes
                 max = 75;
             else
                 max = counter;
+            if (numbers.Count == 74)
+                numbers.RemoveAll(x => x <= max);
 
             int generated;
             do

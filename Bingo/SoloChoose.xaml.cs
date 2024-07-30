@@ -22,6 +22,8 @@ namespace Bingo
         private GameType GameType { get; set; } = GameType.Numbers;
         private Categories Category { get; set; } = Categories.Empty;
 
+        private GameManager gameManager;
+
         public SoloChoose()
         {
             InitializeComponent();
@@ -36,11 +38,12 @@ namespace Bingo
 
             lstCategory.Items.Add("Miasto");
             lstCategory.Items.Add("Wies");
+            gameManager = new GameManager();
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = new GameWindow(BoardSize, GameType, Category);
+            GameWindow gameWindow = new GameWindow(BoardSize, GameType, Category, gameManager);
             gameWindow.Show();
             this.Close();
         } 
@@ -91,10 +94,10 @@ namespace Bingo
             { 
                 case 0:
                 default:
-                    Category = Categories.City;
+                    Category = Categories.Miasto;
                     break;
                 case 1:
-                    Category = Categories.Village;
+                    Category = Categories.Wies;
                     break;
             }
         }

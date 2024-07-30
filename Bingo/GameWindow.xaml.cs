@@ -30,61 +30,92 @@ namespace Bingo
         private Categories category;
         private GameManager gameManager;
         private DispatcherTimer secondTimer;
-        private int currentTime = 10;
+        private int currentTime;
         private int[] numbers;
         private string path = "Data\\data.xml";
         private int counter;
         private XDocument doc;
-        public GameWindow(int size, GameType gameType, Categories category)
+        public GameWindow(int size, GameType gameType, Categories category, GameManager gameManager)
         {
             InitializeComponent();
             this.size = size;
             this.gameType = gameType;
             this.category = category;
+<<<<<<< Updated upstream
             gameManager = new GameManager();
             
+=======
+            this.gameManager = gameManager;
+
+>>>>>>> Stashed changes
             doc = XDocument.Load(path);
             if(category != Categories.Empty)
             {
                 Debug.WriteLine(doc.Element("Main").Element(category.ToString()));
                 XElement cat = doc.Element("Main").Element(category.ToString());
                 counter = cat.Elements("Object").Count();
+                
             }
             CreateGridOfButtons();
+
             secondTimer = new DispatcherTimer();
             secondTimer.Interval = TimeSpan.FromSeconds(1);
             secondTimer.Tick += SecondTimer_Tick;
             secondTimer.Start();
 
-            txbTimer.Text = currentTime.ToString();
+            if (gameType == GameType.Numbers)
+            {
+                txbTimer.Text = currentTime.ToString();
+                currentTime = 10;
+            }
+            
+
+            if(gameType == GameType.FindObjects)
+            {
+                txbGeneratedNumber.Visibility = Visibility.Hidden;
+                txbTimer.Visibility = Visibility.Hidden;
+                lblTimer.Visibility = Visibility.Hidden;
+                lblTitle.Content = $"Find objects - {category.ToString()}";
+                currentTime = 0;
+            }
+
+            
 
         }
 
 
         private void SecondTimer_Tick(object sender, EventArgs e)
         {
-            currentTime--;
-            if (currentTime == 0)
-            { 
-                currentTime = 10;
-                int generatedInt = gameManager.RandomValue(gameType, counter);
-                if (gameType == 0) txbGeneratedNumber.Text = generatedInt.ToString();
-                else
-                {
-                    doc = XDocument.Load(path);
-                    XElement? temp = doc
-                            .Descendants(category.ToString())
-                            .Descendants("Object")
-                            .FirstOrDefault(d => (int)d.Element("Id") == generatedInt);
-                    if (temp != null)
-                    {
-                        txbGeneratedNumber.Text = temp.Element("Name").Value;
-                    }
-                }
-
-                BingoNumberButton.currentGeneratedValue = txbGeneratedNumber.Text;
+            if(category == Categories.Miasto)
+            {
+                currentTime++;
             }
-            txbTimer.Text = currentTime.ToString();
+            else
+            {
+                currentTime--;
+                if (currentTime == 0)
+                {
+                    currentTime = 1;
+                    int generatedInt = gameManager.RandomValue(gameType, counter);
+                    Debug.WriteLine("G" + generatedInt);
+                    if (gameType == 0) txbGeneratedNumber.Text = generatedInt.ToString();
+                    else
+                    {
+                        doc = XDocument.Load(path);
+                        XElement? temp = doc
+                                .Descendants(category.ToString())
+                                .Descendants("Object")
+                                .FirstOrDefault(d => (int)d.Element("Id") == generatedInt);
+                        if (temp != null)
+                        {
+                            txbGeneratedNumber.Text = temp.Element("Name").Value;
+                        }
+                    }
+
+                    BingoNumberButton.currentGeneratedValue = txbGeneratedNumber.Text;
+                }
+                txbTimer.Text = currentTime.ToString();
+            }
         }
 
 
