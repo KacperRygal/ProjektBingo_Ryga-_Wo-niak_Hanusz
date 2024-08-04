@@ -12,6 +12,8 @@ using System.Windows.Xps.Serialization;
 using System.Diagnostics;
 using Bingo.Classes;
 using System.Data;
+using System.Windows.Controls;
+using Microsoft.Win32;
 
 namespace Bingo
 {
@@ -60,10 +62,9 @@ namespace Bingo
             Application.Current.Shutdown();
         }
 
-        // Funkcja dekodująca zakodowany ciąg base64 na adres IP
         public static string DecodeBase64ToIp(string encoded)
         {
-            // Dekodowanie ciągu base64 na tablicę bajtów
+
             byte[] bytes = Convert.FromBase64String(encoded);
 
             if (bytes.Length != 4)
@@ -71,7 +72,6 @@ namespace Bingo
                 throw new ArgumentException("Zakodowany ciąg nie jest prawidłowym adresem IP.");
             }
 
-            // Konwersja bajtów na oktety adresu IP
             string ipAddress = string.Join(".", bytes);
             return ipAddress;
         }
@@ -100,14 +100,14 @@ namespace Bingo
         //nie tykać
         static async Task StartServer(int bSize, GameType gType, Categories Cat)
         {
+            
             Application.Current.Dispatcher.Invoke(() =>
             {
                 gameWindow = new GameWindow(bSize, gType, Cat, gameManager);
+                gameWindow.Title = "Server";
                 gameWindow.Show();
                 gameWindow.Closed += zamykanie;
             });
-            //gameWindow = new GameWindow(bSize, gType, Cat);
-            //gameWindow.Show();
 
             czySerwer= true;
             IPAddress ipAddress = IPAddress.Parse(GetLocalIPAddress());
@@ -119,7 +119,9 @@ namespace Bingo
             Debug.WriteLine("Serwer uruchomiony...");
             Debug.WriteLine("Oczekiwanie na drugiego gracza...");
 
+           
             client = await server.AcceptTcpClientAsync();
+
             Debug.WriteLine("Połączono z klientem.");
 
 
@@ -132,10 +134,6 @@ namespace Bingo
             graThread = new Thread(Gra);
             graThread.Start();
 
-         
-            //receiveThread.Join();
-            //sendThread.Join();
-            //graThread.Join();
         }
        
 
@@ -144,14 +142,12 @@ namespace Bingo
             Application.Current.Dispatcher.Invoke(() =>
             {
                 gameWindow = new GameWindow(bSize, gType, Cat, gameManager);
+                gameWindow.Title = "Client";
                 gameWindow.Show();
 
                 gameWindow.Closed += zamykanie;
             });
             
-            //gameWindow = new GameWindow(bSize, gType, Cat);
-            //gameWindow.Show();
-
             czySerwer = false;
             string serverIp = IP;
             int serverPort = 12345;
@@ -170,10 +166,6 @@ namespace Bingo
 
             graThread = new Thread(Gra);
             graThread.Start();
-
-            //receiveThread.Join();
-            //sendThread.Join();
-            //graThread.Join();
         }
 
         static string GetLocalIPAddress()
@@ -237,7 +229,7 @@ namespace Bingo
                 {
                     while (true)
                     {
-                        Thread.Sleep(500);
+                        Thread.Sleep(250);
                         Przesylana();
                         //wiadomość przesyłana do klienta
                         //string message = "Serwer: "+test ;
@@ -250,7 +242,7 @@ namespace Bingo
                 {
                     while (true)
                     {
-                        Thread.Sleep(500);
+                        Thread.Sleep(225);
                         Przesylana();
                         //wiadomość przesyłana do serwera
                         //string message = "Klient: "+ test;
@@ -270,13 +262,6 @@ namespace Bingo
         }
 
 
-
-
-
-
-
-
-
         //przesyłana jest 'wiadomosc'
         static void Przesylana()
         {
@@ -292,7 +277,7 @@ namespace Bingo
                     }
                     else
                     {
-                       // wiadomosc=gameWindow
+                        wiadomosc = gameWindow.winner.ToString();
                     }
                 });
             }
@@ -308,14 +293,22 @@ namespace Bingo
             {
                 try
                 {
-                    Thread.Sleep(120);
+                    Thread.Sleep(500);
+
                     //tu setery/getery szzczególne dla  
                     //msgSerwer/msgClient -to informacja DLA Serwera/Klienta
                     Application.Current.Dispatcher.Invoke(() =>
                     {
+                        if (!client.Connected)
+                        {
+                            MessageBox.Show("Utracono połączenie");
+                            gameWindow.Close();
+                        }
+
                         if (czySerwer)
                         {
-                            //gameWindow.przeslana.Text = msgSerwer;
+                            dekode = msgSerwer.Split(' ');
+                            oponentWin=bool.Parse(dekode[0]);
                         }
                         else
                         {

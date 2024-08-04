@@ -46,6 +46,9 @@ namespace Bingo
             this.gameManager = gameManager;
 
             doc = XDocument.Load(path);
+         
+           // doc.Element(Xname x => Debug.WriteLine(x));
+
             if (category != Categories.Empty)
             {
                 counter = doc
@@ -66,9 +69,7 @@ namespace Bingo
             
 
         }
-        //zamysł jest taki ,żeby funkcja się wykonywała w nieskończonośc najlepiej żeby ..
-        //trzeba by zrobić gettery i settery żeby uaktualniać stan planszy, wejdzie to w funkcje 'Gra' albo 'Update' w pliku 'Siec.cs'
-
+     
         public string numer()
         {
             return txbGeneratedNumber.Text.ToLower();
@@ -133,6 +134,7 @@ namespace Bingo
             {
                 //secondTimer.Stop();
                 winner = true;
+                MessageBox m;
                 MessageBox.Show("Win");
                 this.Close();
                 //Tutaj wyslanie alertu do GameManager ze ktos wygral nie?

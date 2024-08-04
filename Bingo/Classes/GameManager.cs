@@ -49,7 +49,26 @@ namespace Bingo.Classes
                 secondTimer.Start();
                 //gameWindow.txbTimer.Text = currentTime.ToString();
             }
-            
+            else{
+                secondTimer = new DispatcherTimer();
+                secondTimer.Interval = TimeSpan.FromSeconds(1);
+                secondTimer.Tick += SecondTimer_Tick;
+                secondTimer.Start();
+            }
+        }
+
+        public void zegar(bool stan)
+        {
+            if (stan)
+            {
+                Debug.WriteLine("start");
+                secondTimer.Start();
+            }
+            else
+            {
+                Debug.WriteLine("koniec");
+                secondTimer.Stop();
+            }
         }
 
         private void SecondTimer_Tick(object sender, EventArgs e)
@@ -86,6 +105,10 @@ namespace Bingo.Classes
                     gameWindow.txbTimer.Text = currentTime.ToString();
                 });
                 currentTime--;
+            }
+            if(!isHost && gameType == GameType.Numbers)
+            {
+                BingoNumberButton.currentGeneratedValue = gameWindow.txbGeneratedNumber.Text;
             }
         }
 

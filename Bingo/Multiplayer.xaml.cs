@@ -79,6 +79,7 @@ namespace Bingo
         private void Serwer_Click(object sender, RoutedEventArgs e)
         {
             Siec siec = new Siec(Multi.Serwer, this.daneIP.Text, BoardSize, GameType, Category);
+            
             this.Close();
         }
 
