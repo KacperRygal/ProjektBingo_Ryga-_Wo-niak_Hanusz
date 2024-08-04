@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,7 +22,7 @@ namespace Bingo
         private int BoardSize { get; set; } = 5;
         private GameType GameType { get; set; } = GameType.Numbers;
         private Categories Category { get; set; } = Categories.Empty;
-
+        private GameManager gameManager;
         public SoloChoose()
         {
             InitializeComponent();
@@ -36,11 +37,13 @@ namespace Bingo
 
             lstCategory.Items.Add("Miasto");
             lstCategory.Items.Add("Wies");
+            
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = new GameWindow(BoardSize, GameType, Category);
+            GameWindow gameWindow = new GameWindow(BoardSize, GameType, Category, gameManager);
+            gameManager = new GameManager(GameType, Category, gameWindow, true);
             gameWindow.Show();
             this.Close();
         } 
@@ -91,10 +94,10 @@ namespace Bingo
             { 
                 case 0:
                 default:
-                    Category = Categories.City;
+                    Category = Categories.Miasto;
                     break;
                 case 1:
-                    Category = Categories.Village;
+                    Category = Categories.Wies;
                     break;
             }
         }

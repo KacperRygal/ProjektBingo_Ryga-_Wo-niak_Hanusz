@@ -29,34 +29,39 @@ namespace Bingo
         private GameType gameType;
         private Categories category;
         private GameManager gameManager;
-        private DispatcherTimer secondTimer;
-        private int currentTime = 10;
+        
+        
         private int[] numbers;
         private string path = "Data\\data.xml";
         private int counter;
         private XDocument doc;
-        public GameWindow(int size, GameType gameType, Categories category)
+        public GameWindow(int size, GameType gameType, Categories category, GameManager gameManager)
         {
             InitializeComponent();
             this.size = size;
             this.gameType = gameType;
             this.category = category;
-            gameManager = new GameManager();
+            this.gameManager = gameManager;
 
             doc = XDocument.Load(path);
             if (category != Categories.Empty)
             {
-                Debug.WriteLine(doc.Element("Main").Element(category.ToString()));
-                XElement cat = doc.Element("Main").Element(category.ToString());
-                counter = cat.Elements("Object").Count();
+                counter = doc
+                    .Descendants(category.ToString())
+                    .Descendants("Object")
+                    .Elements("Object").Count();
+            }
+            if(gameType == GameType.FindObjects)
+            {
+                txbGeneratedNumber.Visibility = Visibility.Hidden;
+                txbTimer.Visibility = Visibility.Hidden;
+                lblTimer.Visibility = Visibility.Hidden;
+                lblTitle.Content = $"Znajdz obiekty - {gameType.ToString()}";
             }
             CreateGridOfButtons();
-            secondTimer = new DispatcherTimer();
-            secondTimer.Interval = TimeSpan.FromSeconds(1);
-            secondTimer.Tick += SecondTimer_Tick;
-            secondTimer.Start();
+            
 
-            txbTimer.Text = currentTime.ToString();
+            
 
         }
         //zamysł jest taki ,żeby funkcja się wykonywała w nieskończonośc najlepiej żeby ..
@@ -66,31 +71,8 @@ namespace Bingo
         {
             return txbGeneratedNumber.Text.ToLower();
         }
-        private void SecondTimer_Tick(object sender, EventArgs e)
-        {
-            currentTime--;
-            if (currentTime == 0)
-            { 
-                currentTime = 10;
-                int generatedInt = gameManager.RandomValue(gameType, counter);
-                if (gameType == 0) txbGeneratedNumber.Text = generatedInt.ToString();
-                else
-                {
-                    doc = XDocument.Load(path);
-                    XElement? temp = doc
-                            .Descendants(category.ToString())
-                            .Descendants("Object")
-                            .FirstOrDefault(d => (int)d.Element("Id") == generatedInt);
-                    if (temp != null)
-                    {
-                        txbGeneratedNumber.Text = temp.Element("Name").Value;
-                    }
-                }
 
-                BingoNumberButton.currentGeneratedValue = txbGeneratedNumber.Text;
-            }
-            txbTimer.Text = currentTime.ToString();
-        }
+        
 
         private void CreateGridOfButtons()
         {
@@ -147,7 +129,7 @@ namespace Bingo
         {
             if(CheckWinner())
             {
-                secondTimer.Stop();
+                //secondTimer.Stop();
                 MessageBox.Show("Win");
                 //Tutaj wyslanie alertu do GameManager ze ktos wygral nie?
             }

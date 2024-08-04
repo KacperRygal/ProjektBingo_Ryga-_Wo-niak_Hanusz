@@ -28,7 +28,7 @@ namespace Bingo
         private int BoardSize { get; set; } = 5;
         private GameType GameType { get; set; } = GameType.Numbers;
         private Categories Category { get; set; } = Categories.Empty;
-
+        static private GameManager gameManager;
 
         static TcpListener server;
         static TcpClient client;
@@ -40,23 +40,23 @@ namespace Bingo
         static string msgClient="";
 
 
-        public Siec(Multi multi,string ip,int bSize,GameType gType,Categories Cat)
+        public Siec(Multi multi,string ip,int bSize, GameType gType, Categories cat)
         {
             IP = ip;
             GameType=gType;
-            Category = Cat;
-
+            Category = cat;
             switch (multi)
             {
                 case Multi.Serwer:
-                    StartServerAsync( bSize,gType,Cat);
+                    StartServerAsync( bSize,gType,cat);
                     break;
                 case Multi.Klient:
-                    StartClient(bSize,gType,Cat);
+                    StartClient(bSize,gType,cat);
                     break;
                 default:
                     break;
             }
+            gameManager = new GameManager(gType, cat, gameWindow, czySerwer);
         }
 
 
@@ -66,7 +66,7 @@ namespace Bingo
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                gameWindow = new GameWindow(bSize, gType, Cat);
+                gameWindow = new GameWindow(bSize, gType, Cat, gameManager);
                 gameWindow.Show();
             });
             //gameWindow = new GameWindow(bSize, gType, Cat);
@@ -74,6 +74,7 @@ namespace Bingo
 
             czySerwer= true;
             IPAddress ipAddress = IPAddress.Parse(GetLocalIPAddress());
+            
             int port = 12345;
 
             server = new TcpListener(ipAddress, port);
@@ -105,7 +106,7 @@ namespace Bingo
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                gameWindow = new GameWindow(bSize, gType, Cat);
+                gameWindow = new GameWindow(bSize, gType, Cat, gameManager);
                 gameWindow.Show();
             });
             //gameWindow = new GameWindow(bSize, gType, Cat);
@@ -231,21 +232,17 @@ namespace Bingo
 
                 //tu setery/getery szzczególne dla  
                 //msgSerwer/msgClient -to informacja DLA Serwera/Klienta
-                if (czySerwer)
+                Application.Current.Dispatcher.Invoke(() =>
                 {
-                    Application.Current.Dispatcher.Invoke(() =>
+                    if (czySerwer)
                     {
                         gameWindow.przeslana.Text = msgSerwer;
-                    });
-                    
-                }
-                else
-                {
-                    Application.Current.Dispatcher.Invoke(() =>
+                    }
+                    else
                     {
                         gameWindow.przeslana.Text = msgClient;
-                    });
-                }
+                    }
+                });
 
                 Update();
             }
