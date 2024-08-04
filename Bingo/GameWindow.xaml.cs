@@ -29,6 +29,8 @@ namespace Bingo
         private GameType gameType;
         private Categories category;
         private GameManager gameManager;
+        private bool debug=false;
+        public bool winner=false;
         
         
         private int[] numbers;
@@ -127,10 +129,12 @@ namespace Bingo
 
         private void BingoButton_Clicked(object sender, EventArgs e)
         {
-            if(CheckWinner())
+            if(CheckWinner()||debug)
             {
                 //secondTimer.Stop();
+                winner = true;
                 MessageBox.Show("Win");
+                this.Close();
                 //Tutaj wyslanie alertu do GameManager ze ktos wygral nie?
             }
             
