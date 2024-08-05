@@ -29,6 +29,8 @@ namespace Bingo
         private GameType gameType;
         private Categories category;
         private GameManager gameManager;
+        private bool debug=false;
+        public bool winner=false;
         
         
         private int[] numbers;
@@ -44,12 +46,15 @@ namespace Bingo
             this.gameManager = gameManager;
 
             doc = XDocument.Load(path);
+         
+           // doc.Element(Xname x => Debug.WriteLine(x));
+
             if (category != Categories.Empty)
             {
                 counter = doc
                     .Descendants(category.ToString())
                     .Descendants("Object")
-                    .Elements("Object").Count();
+                    .Count();
             }
             if(gameType == GameType.FindObjects)
             {
@@ -59,14 +64,8 @@ namespace Bingo
                 lblTitle.Content = $"Znajdz obiekty - {gameType.ToString()}";
             }
             CreateGridOfButtons();
-            
-
-            
-
         }
-        //zamysł jest taki ,żeby funkcja się wykonywała w nieskończonośc najlepiej żeby ..
-        //trzeba by zrobić gettery i settery żeby uaktualniać stan planszy, wejdzie to w funkcje 'Gra' albo 'Update' w pliku 'Siec.cs'
-
+     
         public string numer()
         {
             return txbGeneratedNumber.Text.ToLower();
@@ -90,7 +89,7 @@ namespace Bingo
             RandomNumbers(gameType);
 
             ButtonFactory buttonFactory;
-            if(gameType == GameType.Numbers) buttonFactory = new BingoNumberButtonFactory();
+            if(gameType == 0) buttonFactory = new BingoNumberButtonFactory();
             else buttonFactory = new BingoFindButtonFactory();
             
             for (int i = 0; i < size; i++)
@@ -127,10 +126,13 @@ namespace Bingo
 
         private void BingoButton_Clicked(object sender, EventArgs e)
         {
-            if(CheckWinner())
+            if(CheckWinner()||debug)
             {
                 //secondTimer.Stop();
+                winner = true;
+                MessageBox m;
                 MessageBox.Show("Win");
+                this.Close();
                 //Tutaj wyslanie alertu do GameManager ze ktos wygral nie?
             }
             

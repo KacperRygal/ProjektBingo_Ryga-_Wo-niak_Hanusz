@@ -1,6 +1,7 @@
 ﻿using Bingo.Classes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -45,6 +46,7 @@ namespace Bingo
             GameWindow gameWindow = new GameWindow(BoardSize, GameType, Category, gameManager);
             gameManager = new GameManager(GameType, Category, gameWindow, true);
             gameWindow.Show();
+            gameManager.StartTimer();
             this.Close();
         } 
 

@@ -27,29 +27,43 @@ namespace Bingo.Classes
 
         public GameManager(GameType gameType, Categories category, GameWindow gameWindow, bool isHost)
         {
+            
             this.gameType = gameType;
             this.category = category;
             this.gameWindow = gameWindow;
             this.isHost = isHost;
             numbers = new List<int>();
-            
+            doc = XDocument.Load(path);
             if (category != Categories.Empty)
             {
-                
                 counter = doc
                     .Descendants(category.ToString())
                     .Descendants("Object")
-                    .Elements("Object").Count();
+                    .Count();
             }
-            if (isHost)
+            secondTimer = new DispatcherTimer();
+            secondTimer.Interval = TimeSpan.FromSeconds(1);
+            secondTimer.Tick += SecondTimer_Tick;
+        }
+
+        public void StartTimer()
+        {
+            currentTime = 10;
+            secondTimer.Start();
+        }
+
+        public void zegar(bool stan)
+        {
+            if (stan)
             {
-                secondTimer = new DispatcherTimer();
-                secondTimer.Interval = TimeSpan.FromSeconds(1);
-                secondTimer.Tick += SecondTimer_Tick;
+                Debug.WriteLine("start");
                 secondTimer.Start();
-                //gameWindow.txbTimer.Text = currentTime.ToString();
             }
-            
+            else
+            {
+                Debug.WriteLine("koniec");
+                secondTimer.Stop();
+            }
         }
 
         private void SecondTimer_Tick(object sender, EventArgs e)
@@ -87,7 +101,13 @@ namespace Bingo.Classes
                 });
                 currentTime--;
             }
+            if(!isHost && gameType == GameType.Numbers)
+            {
+                BingoNumberButton.currentGeneratedValue = gameWindow.txbGeneratedNumber.Text;
+            }
         }
+
+
 
         private List<int> numbers;
 
