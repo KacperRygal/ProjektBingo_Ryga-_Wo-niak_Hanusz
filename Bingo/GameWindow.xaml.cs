@@ -26,8 +26,8 @@ namespace Bingo
     public partial class GameWindow : Window
     {
         private int size = 5;
-        private GameType gameType;
-        private Categories category;
+        private GameType gameType = GameType.Numbers;
+        private Categories category = Categories.Wies;
         private GameManager gameManager;
         private bool debug=false;
         public bool winner=false;
@@ -65,6 +65,40 @@ namespace Bingo
             }
             CreateGridOfButtons();
         }
+
+        public void SetProperties(GameType gameType, Categories category, int size)
+        {
+            this.size = size;
+            this.gameType = gameType;
+            this.category = category;
+
+            if (category != Categories.Empty)
+            {
+                counter = doc
+                    .Descendants(category.ToString())
+                    .Descendants("Object")
+                    .Count();
+            }
+            if (gameType == GameType.FindObjects)
+            {
+                txbGeneratedNumber.Visibility = Visibility.Hidden;
+                txbTimer.Visibility = Visibility.Hidden;
+                lblTimer.Visibility = Visibility.Hidden;
+                lblTitle.Content = $"Znajdz obiekty - {gameType.ToString()}";
+            }
+
+            Grid mainGrid = (Grid)FindName("Main");
+            if (mainGrid != null)
+            {
+                var buttonsGrid = mainGrid.Children.OfType<Grid>().FirstOrDefault(g => g.Name == "Buttons");
+                if (buttonsGrid != null)
+                {
+                    buttonsGrid.Children.Clear();
+                    mainGrid.Children.Remove(buttonsGrid);
+                }
+            }
+            CreateGridOfButtons();
+        }
      
         public string numer()
         {
@@ -75,6 +109,7 @@ namespace Bingo
 
         private void CreateGridOfButtons()
         {
+            Debug.WriteLine("Dziala");
             Grid grid = new Grid();
             grid.Name = "Buttons";
             grid.HorizontalAlignment = HorizontalAlignment.Center;
