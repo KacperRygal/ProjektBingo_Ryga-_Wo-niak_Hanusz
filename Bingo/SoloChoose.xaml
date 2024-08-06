@@ -5,13 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bingo"
         mc:Ignorable="d"
-        Title="SoloChoose" Height="450" Width="800">
+        Title="SoloChoose" Height="464" Width="672" ResizeMode="CanMinimize" Background="#FF9C8B8B">
     <Grid>
-        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="222,360,0,0" VerticalAlignment="Top" Height="64" Width="154" Click="btnStart_Click"/>
-        <Button x:Name="btnBack" Content="Wróć" HorizontalAlignment="Left" Margin="503,360,0,0" VerticalAlignment="Top" Height="64" Width="127"/>
-        <ListBox x:Name="lstGameType" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="170,34,170,328" SelectionChanged="lstGameType_SelectionChanged"/>
-        <ListBox x:Name="lstBoardSize" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="170,135,170,227" SelectionChanged="lstBoardSize_SelectionChanged"/>
-        <ListBox x:Name="lstCategory" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="170,237,170,125" SelectionChanged="lstCategory_SelectionChanged"/>
+        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="116,360,0,0" VerticalAlignment="Top" Height="64" Width="200" Click="btnStart_Click" BorderBrush="Black" Background="#FFCA8585" BorderThickness="2,2,2,2" FontFamily="Bahnschrift SemiBold Condensed" FontSize="48" FontWeight="Bold"/>
+        <Button x:Name="btnBack" Content="Wróć" HorizontalAlignment="Left" Margin="447,360,0,0" VerticalAlignment="Top" Height="64" Width="150" Click="btnBack_Click" Background="#FFCA8585" BorderBrush="Black" BorderThickness="2,2,2,2" FontSize="48" FontWeight="Bold" FontFamily="Bahnschrift SemiBold Condensed"/>
+        <ListBox x:Name="lstGameType" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="265,40,75,318" SelectionChanged="lstGameType_SelectionChanged" Background="#FFFFE4E4" BorderBrush="Black" BorderThickness="2,2,2,2" Height="90" Width="332" FontFamily="Bahnschrift SemiBold Condensed" FontSize="22"/>
+        <ListBox x:Name="lstBoardSize" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="265,150,75,212" SelectionChanged="lstBoardSize_SelectionChanged" Background="#FFFFE4E4" BorderThickness="2,2,2,2" BorderBrush="Black" Height="90" Width="332" FontFamily="Bahnschrift SemiBold Condensed" FontSize="22"/>
+        <ListBox x:Name="lstCategory" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="265,260,75,102" SelectionChanged="lstCategory_SelectionChanged" Background="#FFFFE4E4" BorderThickness="2,2,2,2" BorderBrush="Black" Height="90" Width="332" FontFamily="Bahnschrift SemiBold Condensed" FontSize="22">
+        </ListBox>
+        <Label HorizontalAlignment="Left" Height="90" Margin="55,40,0,0" VerticalAlignment="Top" Width="190" FontFamily="Bauhaus 93" FontSize="22">
+            <TextBlock TextWrapping="Wrap" Text="Wybierz tryb gry:" Height="80" Width="180" TextAlignment="Right" FontSize="30" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold"/>
+        </Label>
+        <Label HorizontalAlignment="Left" Height="90" Margin="55,150,0,0" VerticalAlignment="Top" Width="190" FontFamily="Bauhaus 93" FontSize="22">
+            <TextBlock TextWrapping="Wrap" Text="Wybierz rozmiar planszy:" Height="80" Width="180" HorizontalAlignment="Right" TextAlignment="Right" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold" FontSize="30"/>
+        </Label>
+        <Label HorizontalAlignment="Left" Height="90" Margin="55,260,0,0" VerticalAlignment="Top" Width="190">
+            <TextBlock TextWrapping="Wrap" Text="Wybierz kategorię:" Height="80" Width="180" FontFamily="Bahnschrift SemiBold Condensed" FontSize="30" FontWeight="Bold" TextAlignment="Right"/>
+        </Label>
 
     </Grid>
 </Window>

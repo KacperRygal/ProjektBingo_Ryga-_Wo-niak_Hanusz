@@ -26,8 +26,8 @@ namespace Bingo
     public partial class GameWindow : Window
     {
         private int size = 5;
-        private GameType gameType = GameType.Numbers;
-        private Categories category = Categories.Wies;
+        private GameType gameType;
+        private Categories category;
         private GameManager gameManager;
         private bool debug=false;
         public bool winner=false;
@@ -40,6 +40,8 @@ namespace Bingo
         public GameWindow(int size, GameType gameType, Categories category, GameManager gameManager)
         {
             InitializeComponent();
+            Top = Properties.Settings.Default.WindowTop;
+            Left = Properties.Settings.Default.WindowLeft;
             this.size = size;
             this.gameType = gameType;
             this.category = category;
@@ -47,7 +49,6 @@ namespace Bingo
 
             doc = XDocument.Load(path);
          
-           // doc.Element(Xname x => Debug.WriteLine(x));
 
             if (category != Categories.Empty)
             {
@@ -61,9 +62,15 @@ namespace Bingo
                 txbGeneratedNumber.Visibility = Visibility.Hidden;
                 txbTimer.Visibility = Visibility.Hidden;
                 lblTimer.Visibility = Visibility.Hidden;
-                lblTitle.Content = $"Znajdz obiekty - {gameType.ToString()}";
+                if (category is Categories.Wies) lblTitle.Content = "Znajdź obiekty: Wieś";
+                else lblTitle.Content = $"Znajdź obiekty: {category}";
             }
             CreateGridOfButtons();
+        }
+     
+        public string numer()
+        {
+            return txbGeneratedNumber.Text.ToLower();
         }
 
         public void SetProperties(GameType gameType, Categories category, int size)
@@ -84,7 +91,7 @@ namespace Bingo
                 txbGeneratedNumber.Visibility = Visibility.Hidden;
                 txbTimer.Visibility = Visibility.Hidden;
                 lblTimer.Visibility = Visibility.Hidden;
-                lblTitle.Content = $"Znajdz obiekty - {gameType.ToString()}";
+                lblTitle.Content = $"{category}";
             }
 
             Grid mainGrid = (Grid)FindName("Main");
@@ -99,17 +106,10 @@ namespace Bingo
             }
             CreateGridOfButtons();
         }
-     
-        public string numer()
-        {
-            return txbGeneratedNumber.Text.ToLower();
-        }
 
-        
 
         private void CreateGridOfButtons()
         {
-            Debug.WriteLine("Dziala");
             Grid grid = new Grid();
             grid.Name = "Buttons";
             grid.HorizontalAlignment = HorizontalAlignment.Center;
@@ -126,22 +126,31 @@ namespace Bingo
             ButtonFactory buttonFactory;
             if(gameType == 0) buttonFactory = new BingoNumberButtonFactory();
             else buttonFactory = new BingoFindButtonFactory();
-            
+
+            List<int> availableIds = Enumerable.Range(0, size * size).ToList();
+            Random rng = new Random();
+            availableIds = availableIds.OrderBy(x => rng.Next()).ToList();
+
             for (int i = 0; i < size; i++)
             {
                 for(int j=0; j< size; j++)
                 {
+                    
+                    
+
                     IBingoButton bingoButton = buttonFactory.CreateButton();
                     bingoButton.OnClick += BingoButton_Clicked;
+                    int randomId = availableIds[j * size + i];
                     bingoButton.Id = i * size + j;
                     if (gameType == 0) bingoButton.Content = numbers[i * size + j].ToString();
                     else
                     {
+
                         doc = XDocument.Load(path);
                         XElement? temp = doc
                             .Descendants(category.ToString())
                             .Descendants("Object")
-                            .FirstOrDefault(d => (int)d.Element("Id") == i * size + j);
+                            .FirstOrDefault(d => (int)d.Element("Id") == randomId);
                         if(temp != null)
                         {
                             bingoButton.Content = temp.Element("Name").Value;
@@ -167,6 +176,9 @@ namespace Bingo
                 winner = true;
                 MessageBox m;
                 MessageBox.Show("Win");
+                
+                MainWindow window = new MainWindow();
+                window.Show();
                 this.Close();
                 //Tutaj wyslanie alertu do GameManager ze ktos wygral nie?
             }
@@ -280,6 +292,13 @@ namespace Bingo
                     }
                 }
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = new MainWindow();
+            window.Show();
+            this.Close();
         }
     }
 }

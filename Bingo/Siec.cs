@@ -17,19 +17,20 @@ using Microsoft.Win32;
 
 namespace Bingo
 {
-
+  
 
     public enum Multi
     {
-        Solo = 0,
-        Serwer = 1,
-        Klient = 2
+        Solo=0,
+        Serwer=1,
+        Klient=2
     }
     public class Siec
     {
-        private int BoardSize { get; set; } = 5;
-        private GameType GameType { get; set; } = GameType.Numbers;
-        private Categories Category { get; set; } = Categories.Empty;
+        private static int testCzekania = 0;
+        private static int BoardSize { get; set; } = 5;
+        private static GameType gameType { get; set; } = GameType.Numbers;
+        private static Categories Category { get; set; } = Categories.Empty;
 
         static private EventHandler zamykanie = new EventHandler(GameWindow_Closed);
 
@@ -40,11 +41,12 @@ namespace Bingo
         static string IP;
         static bool czySerwer;
         static GameWindow gameWindow;
-        static string wiadomosc = "";
-        static string msgSerwer = "";
-        static string msgClient = "";
+        static string  wiadomosc="";
+        static string msgSerwer="";
+        static string msgClient="";
         static string[] dekode;
         static bool oponentWin = false;
+        static int firstMsg = 0;
 
         static Thread receiveThread;
         static Thread sendThread;
@@ -52,6 +54,7 @@ namespace Bingo
 
         static public void GameWindow_Closed(object sender, EventArgs e)
         {
+            Debug.WriteLine("Wylacza sie");
             receiveThread.Abort();
             sendThread.Abort();
             graThread.Abort();
@@ -76,18 +79,19 @@ namespace Bingo
             return ipAddress;
         }
 
-        public Siec(Multi multi, string ip, int bSize, GameType gType, Categories cat)
+        public Siec(Multi multi,string ip,int bSize, GameType gType, Categories cat)
         {
-            GameType = gType;
+            gameType = gType;
             Category = cat;
+            BoardSize= bSize;
             switch (multi)
             {
                 case Multi.Serwer:
-                    StartServer(bSize, gType, cat);
+                    StartServer(bSize,gType,cat);
                     break;
                 case Multi.Klient:
                     IP = DecodeBase64ToIp(ip);
-                    StartClient(bSize, gType, cat);
+                    StartClient(bSize,gType,cat);
                     break;
                 default:
                     break;
@@ -100,7 +104,7 @@ namespace Bingo
         //nie tykać
         static async Task StartServer(int bSize, GameType gType, Categories Cat)
         {
-
+            
             Application.Current.Dispatcher.Invoke(() =>
             {
                 gameWindow = new GameWindow(bSize, gType, Cat, gameManager);
@@ -109,9 +113,9 @@ namespace Bingo
                 gameWindow.Closed += zamykanie;
             });
 
-            czySerwer = true;
+            czySerwer= true;
             IPAddress ipAddress = IPAddress.Parse(GetLocalIPAddress());
-
+            
             int port = 12345;
 
             server = new TcpListener(ipAddress, port);
@@ -119,11 +123,11 @@ namespace Bingo
             Debug.WriteLine("Serwer uruchomiony...");
             Debug.WriteLine("Oczekiwanie na drugiego gracza...");
 
-
+           
             client = await server.AcceptTcpClientAsync();
             gameManager.StartTimer();
             Debug.WriteLine("Połączono z klientem.");
-
+           
 
             receiveThread = new Thread(ReceiveMessages);
             receiveThread.Start();
@@ -135,16 +139,16 @@ namespace Bingo
             graThread.Start();
 
         }
-
+       
 
         static async Task StartClient(int bSize, GameType gType, Categories Cat)
         {
+
             Application.Current.Dispatcher.Invoke(() =>
             {
-                gameWindow = new GameWindow(bSize, gType, Cat, gameManager);
+                gameWindow = new GameWindow(BoardSize, gameType, Category, gameManager);
                 gameWindow.Title = "Client";
                 gameWindow.Show();
-
                 gameWindow.Closed += zamykanie;
             });
 
@@ -156,7 +160,8 @@ namespace Bingo
             Debug.WriteLine("Łączenie z klientem...");
             await client.ConnectAsync(serverIp, serverPort);
 
-            gameManager.StartTimer();
+
+           // gameManager.StartTimer();
 
             Debug.WriteLine("Połączono z serwerem.");
 
@@ -200,7 +205,7 @@ namespace Bingo
                         int bytesRead = stream.Read(buffer, 0, buffer.Length);
                         string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                         //wiadomosc przesylana z klienta
-                        Debug.WriteLine(message + '\n');
+                        //Debug.WriteLine(message + '\n');
                         msgSerwer = message;
                     }
                 }
@@ -211,12 +216,12 @@ namespace Bingo
                         int bytesRead = stream.Read(buffer, 0, buffer.Length);
                         string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                         //wiadomosc przesylana z serwera
-                        Debug.WriteLine(message + '\n');
+                        //Debug.WriteLine(message + '\n');
                         msgClient = message;
                     }
                 }
             }
-            catch
+            catch 
             {
                 Thread.CurrentThread.Interrupt();
             }
@@ -233,8 +238,7 @@ namespace Bingo
                     {
                         Thread.Sleep(250);
                         Przesylana();
-                        //wiadomość przesyłana do klienta
-                        //string message = "Serwer: "+test ;
+
                         string message = wiadomosc;
                         byte[] data = Encoding.ASCII.GetBytes(message);
                         stream.Write(data, 0, data.Length);
@@ -246,8 +250,7 @@ namespace Bingo
                     {
                         Thread.Sleep(225);
                         Przesylana();
-                        //wiadomość przesyłana do serwera
-                        //string message = "Klient: "+ test;
+
                         string message = wiadomosc;
                         byte[] data = Encoding.ASCII.GetBytes(message);
                         stream.Write(data, 0, data.Length);
@@ -273,9 +276,20 @@ namespace Bingo
                 {
                     if (czySerwer)
                     {
-                        wiadomosc = gameWindow.numer();
-                        wiadomosc += " " + gameWindow.txbTimer.Text.ToString();
-                        wiadomosc += " " + gameWindow.winner.ToString();
+                        if (firstMsg<4&&client.Connected)
+                        {
+                            wiadomosc = gameType 
+                            + " " + Category 
+                            + " " + BoardSize
+                            + " " + firstMsg;
+                            firstMsg++;
+                        }
+                        else
+                        {
+                            wiadomosc = gameWindow.numer()
+                            + " " + gameWindow.txbTimer.Text.ToString()
+                            + " " + gameWindow.winner.ToString();
+                        }
                     }
                     else
                     {
@@ -310,21 +324,38 @@ namespace Bingo
                         if (czySerwer)
                         {
                             dekode = msgSerwer.Split(' ');
-                            oponentWin = bool.Parse(dekode[0]);
+                            oponentWin=bool.Parse(dekode[0]);
                         }
                         else
                         {
-                            dekode = msgClient.Split(' ');
-                            gameWindow.txbGeneratedNumber.Text = dekode[0];
-                            //musi być
-                            if (dekode.Length > 1)
+                            dekode = msgClient.Split(" ");
+                            if (dekode.Length ==4 && firstMsg == 0 &&client.Connected)
                             {
-                                gameWindow.txbTimer.Text = dekode[1];
-                                oponentWin = bool.Parse(dekode[2]);
+                                try
+                                {
+                                    Debug.WriteLine("Test wiadomosci " + msgClient);
+                                    //gameType + " " + Category + " " + BoardSize + " " + firstMsg;
+                                    gameType=Enum.Parse<GameType>(dekode[0]);
+                                    Category=Enum.Parse<Categories>(dekode[1]);
+                                    BoardSize=Int16.Parse(dekode[2]);
+                                    firstMsg =Int16.Parse(dekode[3]);
+                                    Debug.WriteLine(gameType + " " + Category + " " + BoardSize + " " + firstMsg);
+                                    Debug.WriteLine(gameType.ToString());
+                                    gameWindow.SetProperties(gameType, Category, BoardSize);
+                                }
+                                catch { }
+                            }
+                            else if(dekode.Length==3){
+                                gameWindow.txbGeneratedNumber.Text = dekode[0];
+                                //musi być
+                                if (dekode.Length > 1)
+                                {
+                                    gameWindow.txbTimer.Text = dekode[1];
+                                    oponentWin = bool.Parse(dekode[2]);
+                                }
                             }
                         }
-
-                        if (oponentWin)
+                        if(oponentWin)
                         {
                             MessageBox.Show("Oponent wygrał");
                             gameWindow.Close();

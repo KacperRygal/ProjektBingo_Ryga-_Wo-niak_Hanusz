@@ -22,11 +22,13 @@ namespace Bingo
     {
         private int BoardSize { get; set; } = 5;
         private GameType GameType { get; set; } = GameType.Numbers;
-        private Categories Category { get; set; } = Categories.Empty;
+        private Categories Category { get; set; } = Categories.Miasto;
         private GameManager gameManager;
         public SoloChoose()
         {
             InitializeComponent();
+            Top = Properties.Settings.Default.WindowTop;
+            Left = Properties.Settings.Default.WindowLeft;
             lstBoardSize.IsEnabled = false;
             lstCategory.IsEnabled = false;
             lstBoardSize.Items.Add("5x5");
@@ -102,6 +104,13 @@ namespace Bingo
                     Category = Categories.Wies;
                     break;
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = new MainWindow();
+            window.Show();
+            this.Close();
         }
     }
 }

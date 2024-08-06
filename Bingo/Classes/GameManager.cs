@@ -50,7 +50,6 @@ namespace Bingo.Classes
         {
             currentTime = 10;
             secondTimer.Start();
-            //gameWindow.SetProperties(gameType, category, 3);
         }
 
         public void zegar(bool stan)
@@ -69,6 +68,7 @@ namespace Bingo.Classes
 
         private void SecondTimer_Tick(object sender, EventArgs e)
         {
+            
             if (isHost && gameType == GameType.Numbers)
             {
                 if (currentTime == 0)
