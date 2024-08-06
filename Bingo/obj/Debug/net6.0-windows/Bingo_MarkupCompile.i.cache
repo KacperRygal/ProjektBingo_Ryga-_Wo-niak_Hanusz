@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Kuba\Desktop\Projekt_Bingo\Bingo_WozniakRygalHanusz\Bingo\App.xaml
-4-365791776
+51832324673
 
-18551032384
+201144852749
 1941709816142
-GameWindow.xaml;MainWindow.xaml;Multiplayer.xaml;SoloChoose.xaml;
+Dialog.xaml;GameWindow.xaml;MainWindow.xaml;Multiplayer.xaml;SoloChoose.xaml;
 
 False
 

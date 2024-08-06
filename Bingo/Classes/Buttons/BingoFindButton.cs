@@ -15,6 +15,8 @@ namespace Bingo.Classes.Buttons
         public int id;
         public bool currentState = false;
 
+        private TextBlock textBlock;
+
         public int Id
         {
             get { return id; }
@@ -22,8 +24,8 @@ namespace Bingo.Classes.Buttons
         }
         string IBingoButton.Content
         {
-            get { return (string)Content; }
-            set { Content = value; }
+            get { return textBlock.Text; }
+            set { textBlock.Text = value; }
         }
 
         bool IBingoButton.CurrentState
@@ -36,14 +38,30 @@ namespace Bingo.Classes.Buttons
 
         public BingoFindButton()
         {
+            textBlock = new TextBlock
+            {
+                TextWrapping = TextWrapping.Wrap,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                FontFamily = new FontFamily("Bahnschrift SemiBold Condensed"),
+                FontSize = 20,
+                FontWeight = FontWeights.Bold
+            };
+
+            Content = textBlock;
+
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
             Margin = new Thickness(5);
-            Width = 80;
-            Height = 80;
+            Width = 140;
+            Height = 65;
             Click += (s, e) => OnClick();
-            Background = Brushes.LightGray;
+            Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFE4E4"));
             Padding = new Thickness(5);
+            BorderThickness = new Thickness(2);
+            BorderBrush = Brushes.Black;
+            
+            
         }
 
         private event EventHandler _onClick;
@@ -74,8 +92,8 @@ namespace Bingo.Classes.Buttons
             }
             else
             {
-                Background = new SolidColorBrush(Colors.LightGray);
-                    currentState = false;
+                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFE4E4"));
+                currentState = false;
             }
             OnButtonClicked(EventArgs.Empty);
             _onClick?.Invoke(this, EventArgs.Empty);

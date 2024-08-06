@@ -5,12 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bingo"
         mc:Ignorable="d"
-        Title="Multiplayer" Height="450" Width="800">
+        Title="Multiplayer" Height="460" Width="829" ResizeMode="CanMinimize" Background="#FF9C8B8B">
     <Grid>
-        <Button x:Name="Serwer" Content="Hostuj gre" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" Height="85" Width="180" Click="Serwer_Click"/>
-        <Button x:Name="Klient" Content="Dołącz do gry" HorizontalAlignment="Center" Margin="0,301,0,0" VerticalAlignment="Top" Height="85" Width="180" Click="Klient_Click"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False"><Run Language="pl-pl" Text="Podaj IP:"/></TextBlock>
-        <TextBox x:Name="daneIP" HorizontalAlignment="Center" Margin="0,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-
+        <Button x:Name="Serwer" Content="Hostuj gre" HorizontalAlignment="Left" Margin="561,107,0,0" VerticalAlignment="Top" Height="85" Width="180" Click="Serwer_Click" BorderBrush="Black" Background="#FFCA8585" BorderThickness="2,2,2,2" FontFamily="Bahnschrift SemiBold Condensed" FontSize="48" FontWeight="Bold"/>
+        <Button x:Name="Klient" Content="Dołącz do gry" HorizontalAlignment="Left" Margin="252,326,0,0" VerticalAlignment="Top" Height="85" Width="294" Click="Klient_Click" BorderBrush="Black" Background="#FFCA8585" BorderThickness="2,2,2,2" FontFamily="Bahnschrift SemiBold Condensed" FontSize="48" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="96,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" FontSize="24"><Run Language="pl-pl" Text="Podaj IP:" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold"/></TextBlock>
+        <TextBox x:Name="daneIP" HorizontalAlignment="Left" Margin="29,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextAlignment="Center" Height="30" FontSize="26" FontWeight="Bold" Background="Snow" FontFamily="Bahnschrift SemiBold Condensed" BorderBrush="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="602,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="98" FontSize="24" TextAlignment="Center"><Run Language="pl-pl" Text="IP serwera" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold"/></TextBlock>
+        <TextBox x:Name="txtIPserw" HorizontalAlignment="Left" Margin="576,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" IsReadOnly="True" Cursor="Arrow" IsReadOnlyCaretVisible="True" Height="30" TextAlignment="Center" Background="Snow" FontFamily="Bahnschrift SemiBold Condensed" FontSize="26" BorderBrush="Black" Focusable="False"/>
+        <ListBox x:Name="lstGameType" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="215,17,282,337" SelectionChanged="lstGameType_SelectionChanged" Background="#FFFFE4E4" BorderBrush="Black" BorderThickness="2,2,2,2" Width="332" FontFamily="Bahnschrift SemiBold Condensed" FontSize="22" Height="90"/>
+        <ListBox x:Name="lstBoardSize" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="215,112,282,242" SelectionChanged="lstBoardSize_SelectionChanged" Background="#FFFFE4E4" BorderBrush="Black" BorderThickness="2,2,2,2" Width="332" FontFamily="Bahnschrift SemiBold Condensed" FontSize="22" Height="90"/>
+        <ListBox x:Name="lstCategory" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="214,209,283,145" SelectionChanged="lstCategory_SelectionChanged" Background="#FFFFE4E4" BorderBrush="Black" BorderThickness="2,2,2,2" Width="332" FontFamily="Bahnschrift SemiBold Condensed" FontSize="22" Height="90"/>
+        <TextBlock TextWrapping="Wrap" Text="Wybierz tryb gry:" TextAlignment="Right" FontSize="26" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold" Margin="0,18,620,359"/>
+        <TextBlock TextWrapping="Wrap" Text="Wybierz rozmiar planszy:" Width="180" HorizontalAlignment="Right" TextAlignment="Right" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold" FontSize="26" Margin="0,112,620,252"/>
+        <TextBlock TextWrapping="Wrap" Text="Wybierz kategorię:" Width="180" HorizontalAlignment="Right" TextAlignment="Right" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold" FontSize="26" Margin="0,210,620,145"/>
+        <Button x:Name="btnBack" Content="Wróć" HorizontalAlignment="Left" Margin="651,326,0,0" VerticalAlignment="Top" Height="85" Width="129" Click="btnBack_Click" Background="#FFCA8585" BorderBrush="Black" BorderThickness="2,2,2,2" FontSize="48" FontWeight="Bold" FontFamily="Bahnschrift SemiBold Condensed"/>
     </Grid>
 </Window>

@@ -1,6 +1,7 @@
 ﻿using Bingo.Classes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -21,11 +22,13 @@ namespace Bingo
     {
         private int BoardSize { get; set; } = 5;
         private GameType GameType { get; set; } = GameType.Numbers;
-        private Categories Category { get; set; } = Categories.Empty;
+        private Categories Category { get; set; } = Categories.Miasto;
         private GameManager gameManager;
         public SoloChoose()
         {
             InitializeComponent();
+            Top = Properties.Settings.Default.WindowTop;
+            Left = Properties.Settings.Default.WindowLeft;
             lstBoardSize.IsEnabled = false;
             lstCategory.IsEnabled = false;
             lstBoardSize.Items.Add("5x5");
@@ -45,6 +48,7 @@ namespace Bingo
             GameWindow gameWindow = new GameWindow(BoardSize, GameType, Category, gameManager);
             gameManager = new GameManager(GameType, Category, gameWindow, true);
             gameWindow.Show();
+            gameManager.StartTimer();
             this.Close();
         } 
 
@@ -100,6 +104,13 @@ namespace Bingo
                     Category = Categories.Wies;
                     break;
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = new MainWindow();
+            window.Show();
+            this.Close();
         }
     }
 }

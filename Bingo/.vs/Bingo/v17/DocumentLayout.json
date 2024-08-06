@@ -7,40 +7,32 @@
       "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:siec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\solochoose.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:solochoose.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\multiplayer.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:multiplayer.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\multiplayer.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:multiplayer.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\solochoose.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:solochoose.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\classes\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:classes\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\multiplayer.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:multiplayer.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\dialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:dialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\classes\\gametype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:classes\\gametype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|d:\\bingo_prir\\bingo_wozniakrygalhanusz\\bingo\\solochoose.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5325C8-DEF7-4CC8-A598-9054935D7365}|Bingo.csproj|solutionrelative:solochoose.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,107 +42,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Multiplayer.xaml",
-              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\Multiplayer.xaml",
-              "RelativeDocumentMoniker": "Multiplayer.xaml",
-              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\Multiplayer.xaml",
-              "RelativeToolTip": "Multiplayer.xaml",
+              "DocumentIndex": 5,
+              "Title": "Dialog.xaml",
+              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\Dialog.xaml",
+              "RelativeDocumentMoniker": "Dialog.xaml",
+              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\Dialog.xaml",
+              "RelativeToolTip": "Dialog.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-27T15:07:00.307Z",
+              "WhenOpened": "2024-08-04T08:20:51.653Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "GameWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\GameWindow.xaml.cs",
-              "RelativeDocumentMoniker": "GameWindow.xaml.cs",
-              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\GameWindow.xaml.cs",
-              "RelativeToolTip": "GameWindow.xaml.cs",
-              "ViewState": "AQIAAJQAAAAAAAAAAAAcwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T14:52:51.461Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T01:37:38.78Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GameWindow.xaml",
-              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\GameWindow.xaml",
-              "RelativeDocumentMoniker": "GameWindow.xaml",
-              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\GameWindow.xaml",
-              "RelativeToolTip": "GameWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-27T01:19:19.739Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SoloChoose.xaml.cs",
-              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\SoloChoose.xaml.cs",
-              "RelativeDocumentMoniker": "SoloChoose.xaml.cs",
-              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\SoloChoose.xaml.cs",
-              "RelativeToolTip": "SoloChoose.xaml.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAAAcwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T00:46:51.015Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SoloChoose.xaml",
-              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\SoloChoose.xaml",
-              "RelativeDocumentMoniker": "SoloChoose.xaml",
-              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\SoloChoose.xaml",
-              "RelativeToolTip": "SoloChoose.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-27T00:46:47.227Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Multiplayer.xaml.cs",
-              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\Multiplayer.xaml.cs",
-              "RelativeDocumentMoniker": "Multiplayer.xaml.cs",
-              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\Multiplayer.xaml.cs",
-              "RelativeToolTip": "Multiplayer.xaml.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAxwCUAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T00:37:26.577Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\AssemblyInfo.cs",
-              "RelativeDocumentMoniker": "AssemblyInfo.cs",
-              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\AssemblyInfo.cs",
-              "RelativeToolTip": "AssemblyInfo.cs",
+              "Title": "GameType.cs",
+              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\Classes\\GameType.cs",
+              "RelativeDocumentMoniker": "Classes\\GameType.cs",
+              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\Classes\\GameType.cs",
+              "RelativeToolTip": "Classes\\GameType.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-26T23:45:17.586Z"
+              "WhenOpened": "2024-08-04T08:14:26.871Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -160,21 +77,75 @@
               "RelativeDocumentMoniker": "Siec.cs",
               "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\Siec.cs",
               "RelativeToolTip": "Siec.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAAAOwAAAAVAAAA",
+              "ViewState": "AQIAAKoAAAAAAAAAAAAQwMkAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-26T23:44:59.303Z",
+              "WhenOpened": "2024-08-04T07:55:54.573Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-26T23:44:51.317Z"
+              "DocumentIndex": 1,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\Classes\\GameManager.cs",
+              "RelativeDocumentMoniker": "Classes\\GameManager.cs",
+              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\Classes\\GameManager.cs",
+              "RelativeToolTip": "Classes\\GameManager.cs",
+              "ViewState": "AQIAAHoAAAAAAAAAAAAIwDYAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T07:52:35.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\GameWindow.xaml.cs",
+              "RelativeDocumentMoniker": "GameWindow.xaml.cs",
+              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\GameWindow.xaml.cs",
+              "RelativeToolTip": "GameWindow.xaml.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAgwDgAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T07:52:18.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T07:52:15.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Multiplayer.xaml.cs",
+              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\Multiplayer.xaml.cs",
+              "RelativeDocumentMoniker": "Multiplayer.xaml.cs",
+              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\Multiplayer.xaml.cs",
+              "RelativeToolTip": "Multiplayer.xaml.cs",
+              "ViewState": "AQIAAHsAAAAAAAAAAAAkwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T07:52:14.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SoloChoose.xaml.cs",
+              "DocumentMoniker": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\SoloChoose.xaml.cs",
+              "RelativeDocumentMoniker": "SoloChoose.xaml.cs",
+              "ToolTip": "D:\\Bingo_PRIR\\Bingo_WozniakRygalHanusz\\Bingo\\SoloChoose.xaml.cs",
+              "RelativeToolTip": "SoloChoose.xaml.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAmwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T07:52:10.911Z",
+              "EditorCaption": ""
             }
           ]
         }

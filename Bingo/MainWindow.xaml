@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bingo"
         mc:Ignorable="d"
-        Title="Bingo" Height="450" Width="800">
+        Title="Bingo" Height="378" Width="367" ResizeMode="CanMinimize" Background="#FF9C8B8B">
     <Grid>
-        <Button x:Name="btnSolo" Content="Graj solo" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" Height="54" Width="190" Click="btnSolo_Click"/>
-        <Button x:Name="btnMulti" Content="Graj vs." HorizontalAlignment="Center" Margin="0,163,0,0" VerticalAlignment="Top" Height="54" Width="190" Click="btnMulti_Click"/>
-        <Button x:Name="btnSettings" Content="Ustawienia" HorizontalAlignment="Center" Margin="0,245,0,0" VerticalAlignment="Top" Height="54" Width="190"/>
+        <Button x:Name="btnSolo" Content="Graj solo" HorizontalAlignment="Center" Margin="0,181,0,0" VerticalAlignment="Top" Height="54" Width="190" Click="btnSolo_Click" FontFamily="Bahnschrift SemiBold Condensed" FontSize="36" Background="#FFCA8585" BorderThickness="2,2,2,2" BorderBrush="Black"/>
+        <Button x:Name="btnMulti" Content="Graj vs." HorizontalAlignment="Center" Margin="0,266,0,0" VerticalAlignment="Top" Height="54" Width="190" Click="btnMulti_Click" FontFamily="Bahnschrift SemiBold Condensed" FontSize="36" Background="#FFCA8585" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+        <Label Content="Bingo&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,33,0,0" VerticalAlignment="Top" Height="113" Width="285" FontSize="72" FontFamily="Bauhaus 93" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>

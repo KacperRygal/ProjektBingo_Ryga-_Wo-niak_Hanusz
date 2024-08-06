@@ -1,27 +1,30 @@
-﻿<Window x:Class="Bingo.GameWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bingo"
+        xmlns:Buttons="clr-namespace:Bingo.Classes.Buttons" x:Class="Bingo.GameWindow"
         mc:Ignorable="d"
-        Title="GameWindow" Height="500" Width="800">
+        Title="GameWindow" Height="547" Width="850" ResizeMode="CanMinimize" Background="#FF9C8B8B">
 
     <Grid x:Name="Main">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"></RowDefinition>
-            <RowDefinition Height="400"></RowDefinition>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="400"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0" Grid.Column="0" x:Name="Manager" Margin="0,10,0,10">
-            <TextBox x:Name="txbGeneratedNumber" HorizontalAlignment="Left" Margin="512,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111" Height="46" FontSize="24"/>
-            <Label x:Name="lblTitle" Content="Wygenerowana liczba:" HorizontalAlignment="Left" Margin="258,23,0,0" VerticalAlignment="Top" Width="249" Height="46" FontSize="24"/>
-            <TextBox x:Name="txbTimer" HorizontalAlignment="Left" Margin="142,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Height="46" FontSize="24"/>
-            <Label x:Name="lblTimer" Content="Timer" HorizontalAlignment="Left" Margin="65,23,0,0" VerticalAlignment="Top" Width="72" Height="46" FontSize="24"/>
-            <TextBox x:Name="przeslana" HorizontalAlignment="Left" Margin="656,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Height="47"/>
-            <TextBlock HorizontalAlignment="Left" Margin="656,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="122"><Run Language="pl-pl" Text="Przeslana wartosc:"/></TextBlock>
+            <TextBox x:Name="txbGeneratedNumber" HorizontalAlignment="Left" Margin="533,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Height="46" FontSize="40" BorderBrush="Black" Background="Snow" FontFamily="Bahnschrift SemiBold Condensed"/>
+            <Label x:Name="lblTitle" Content="Wygenerowana liczba:" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" Width="262" Height="46" FontSize="28" FontFamily="Bahnschrift SemiBold Condensed"/>
+            <TextBox x:Name="txbTimer" HorizontalAlignment="Left" Margin="142,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Height="46" FontSize="40" BorderBrush="Black" Background="Snow" FontFamily="Bahnschrift SemiBold Condensed"/>
+            <Label x:Name="lblTimer" Content=" Czas: " HorizontalAlignment="Left" Margin="70,23,0,0" VerticalAlignment="Top" Width="72" Height="46" FontSize="28" FontFamily="Bahnschrift SemiBold Condensed" FontWeight="Bold"/>
+            <Button x:Name="btnExit" Content="Wyjdź do menu
+                    " HorizontalAlignment="Left" Margin="669,14,0,0" VerticalAlignment="Top" Height="56" Width="155" Click="btnBack_Click" Background="#FFCA8585" BorderBrush="Black" BorderThickness="2,2,2,2" FontSize="30
+                    " FontWeight="Bold" FontFamily="Bahnschrift SemiBold Condensed"/>
         </Grid>
+        <Buttons:BingoFindButton Content="BingoFindButton" HorizontalAlignment="Left" Margin="1042,241,0,0" Grid.Row="1" VerticalAlignment="Top"/>
     </Grid>
 </Window>

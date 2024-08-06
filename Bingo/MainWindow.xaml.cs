@@ -21,6 +21,8 @@ namespace Bingo
         public MainWindow()
         {
             InitializeComponent();
+            Top = Properties.Settings.Default.WindowTop;
+            Left = Properties.Settings.Default.WindowLeft;
         }
 
         private void btnSolo_Click(object sender, RoutedEventArgs e)
